@@ -1,3 +1,10 @@
+// Alternar páginas
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(pageId).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
 // Validação de cadastro
 document.addEventListener("DOMContentLoaded", () => {
   const cadastroForm = document.getElementById("cadastroForm");
@@ -11,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("As senhas não coincidem!");
       } else {
         alert("Cadastro realizado com sucesso!");
-        window.location.href = "login.html";
+        showPage('login');
       }
     });
   }
@@ -22,7 +29,13 @@ document.addEventListener("DOMContentLoaded", () => {
     loginForm.addEventListener("submit", (e) => {
       e.preventDefault();
       alert("Login efetuado com sucesso!");
-      window.location.href = "index.html";
+      showPage('home');
     });
   }
 });
+
+// Dropdown do perfil
+function toggleDropdown() {
+  document.getElementById("dropdownMenu").classList.toggle("active");
+}
+
