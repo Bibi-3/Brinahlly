@@ -250,3 +250,52 @@ footer {
   }
 }
 
+.hidden {
+  display: none;
+}
+
+section {
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 400px;
+  background: #fff;
+  border: 2px solid #B695C0;
+  border-radius: 10px;
+}
+
+section h2 {
+  text-align: center;
+  color: #B695C0;
+  margin-bottom: 15px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin: 5px 0 2px;
+  color: #333;
+}
+
+form input {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+form button {
+  background: #B695C0;
+  border: none;
+  padding: 10px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background: #9d75af;
+}
