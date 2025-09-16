@@ -73,21 +73,57 @@ main { padding: 20px; }
 }
 
 .card {
-  background-color: #B695C0; /* Lilás principal */
-  color: white; /* texto em branco para contraste */
-  border: 2px solid gold; /* contorno dourado */
-  border-radius: 12px;
-  padding: 20px;
+  background-color: #B695C0; /* lilás */
+  color: white;
+  border: 2px solid gold;
+  border-radius: 8px; /* cantos menos arredondados */
+  padding: 15px;
+  width: 250px;  /* largura fixa */
+  height: 250px; /* altura fixa para quadrado */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
+.card img {
+  width: 100px; 
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
 .card h3 {
-  color: gold; /* título em dourado */
+  font-size: 1rem;
+  color: gold;
+  margin: 5px 0;
 }
 
 .card p {
-  color: #fff9f0; /* descrição em tom claro */
+  font-size: 0.85rem;
+  color: #fff9f0;
+  flex-grow: 1;
+  margin: 5px 0;
+}
+
+.card button {
+  background-color: gold;
+  border: none;
+  color: #333;
+  padding: 6px 10px;
+  margin: 3px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+  background-color: #e6c300;
 }
 
 .card:hover {
@@ -95,19 +131,6 @@ main { padding: 20px; }
   box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
-
-.card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.actions { margin-top: 10px; }
 
 /* Formulários */
 .form-section {
