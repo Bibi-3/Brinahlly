@@ -1,88 +1,120 @@
-/* Reset */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
 
 body {
-  font-family: 'Arial', sans-serif;
-  background: #fff;
+  background: #f9f9f9;
   color: #333;
   line-height: 1.6;
 }
 
 /* Header */
 header {
+  text-align: center;
   background: #B695C0;
   color: white;
-  text-align: center;
   padding: 20px;
   position: relative;
 }
 
-.slogan {
+header h1 {
+  font-size: 2rem;
+}
+
+header .slogan {
   font-style: italic;
-  margin-top: 5px;
+  font-size: 1rem;
 }
 
-nav { margin-top: 10px; }
+/* Menu suspenso */
+.profile-menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
 
-/* Botões padrão (Comprar) */
-.card button {
-  background-color: gold;
+.profile-btn {
+  background: transparent;
   border: none;
-  color: #333;
-  padding: 6px 10px;
-  margin: 3px;
-  border-radius: 6px;
+  font-size: 24px;
   cursor: pointer;
-  font-size: 0.85rem;
-  transition: all 0.3s ease;
+  color: white;
 }
 
-/* Botão "Adicionar ao carrinho" transparente */
-.card button:nth-of-type(2) {
-  background-color: transparent;
-  border: 2px solid gold;
-  color: gold;
+.dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  min-width: 160px;
+  z-index: 1000;
 }
 
-.card button:nth-of-type(2):hover {
-  background-color: rgba(255, 215, 0, 0.1); /* dourado suave no hover */
-  color: #e6c300;
-  border-color: #e6c300;
+.dropdown a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
 }
 
-
-/* Glitter dourado */
-@keyframes glitter {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.dropdown a:hover {
+  background: #f0f0f0;
 }
 
-/* Layout */
-main { padding: 20px; }
+.show {
+  display: block;
+}
+
+/* Seção de produtos */
+.produtos {
+  padding: 30px 20px;
+  text-align: center;
+}
 
 .produtos h2 {
-  text-align: center;
-  margin-bottom: 20px;
   color: #B695C0;
-  border-bottom: 2px dashed #FFD700;
-  padding-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-.grid {
+/* Grid de produtos */
+.produtos-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+  justify-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
+/* Responsividade */
+@media (max-width: 1024px) {
+  .produtos-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .produtos-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cards */
 .card {
-  background-color: #B695C0; /* lilás */
+  background-color: #B695C0;
   color: white;
   border: 2px solid gold;
-  border-radius: 8px; /* cantos menos arredondados */
+  border-radius: 8px;
   padding: 15px;
-  width: 250px;  /* largura fixa */
-  height: 250px; /* altura fixa para quadrado */
+  width: 250px;
+  height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -113,153 +145,49 @@ main { padding: 20px; }
   margin: 5px 0;
 }
 
+/* Botões dos cards */
 .card button {
-  background-color: gold;
-  border: none;
-  color: #333;
   padding: 6px 10px;
   margin: 3px;
   border-radius: 6px;
   cursor: pointer;
   font-size: 0.85rem;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.card button:hover {
+/* Comprar */
+.card button:first-of-type {
+  background-color: gold;
+  border: none;
+  color: #333;
+}
+
+.card button:first-of-type:hover {
   background-color: #e6c300;
 }
 
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+/* Adicionar ao carrinho */
+.card button:nth-of-type(2) {
+  background-color: transparent;
+  border: 2px solid gold;
+  color: gold;
 }
 
-
-/* Formulários */
-.form-section {
-  max-width: 400px;
-  margin: auto;
-  background: #f9f9f9;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  border: 1px solid #FFD700;
+.card button:nth-of-type(2):hover {
+  background-color: rgba(255, 215, 0, 0.1);
+  color: #e6c300;
+  border-color: #e6c300;
 }
 
-.form-section h2 {
-  color: #B695C0;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-form label {
-  display: block;
-  margin: 10px 0 5px;
-}
-
-form input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-}
-
-footer {
-  background: #B695C0;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  margin-top: 20px;
-}
-
-/* Navegação de páginas */
-.page { display: none; }
-.active { display: block; }
-
-/* Menu perfil */
-.profile-menu {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
-.profile-btn {
-  background: #FFD700;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  font-size: 20px;
-  line-height: 40px;
-}
-
-.dropdown {
-  display: none;
-  position: absolute;
-  right: 0;
-  background: #fff;
-  border: 1px solid #FFD700;
-  border-radius: 10px;
-  margin-top: 5px;
-  min-width: 180px;
-  z-index: 100;
-}
-
-.dropdown a {
-  display: block;
-  padding: 10px;
-  text-decoration: none;
-  color: #333;
-  border-bottom: 1px solid #eee;
-}
-
-.dropdown a:hover { background: #FFD70033; }
-
-.dropdown.active { display: block; }
-
-.profile-btn { position: relative; }
-.cart-badge {
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  background: #B695C0;
-  color: #fff;
-  border-radius: 50%;
-  padding: 2px 6px;
-  font-size: 12px;
-}
-.produtos-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 colunas */
-  gap: 20px;
-  justify-items: center;   /* centraliza cada card */
-  max-width: 1200px;       /* limita largura total */
-  margin: 0 auto;          /* centraliza o grid */
-  padding: 20px;
-}
-
-/* Responsivo para telas menores */
-@media (max-width: 1024px) {
-  .produtos-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets */
-  }
-}
-
-@media (max-width: 600px) {
-  .produtos-container {
-    grid-template-columns: 1fr; /* 1 coluna em celulares */
-  }
-}
-
+/* Seções de login/cadastro */
 .hidden {
   display: none;
 }
 
 section {
-  margin: 30px auto;   /* centraliza horizontal */
+  margin: 30px auto;
   padding: 20px;
-  max-width: 400px;    /* largura máxima para não esticar */
+  max-width: 400px;
   background: #fff;
   border: 2px solid #B695C0;
   border-radius: 10px;
@@ -272,6 +200,7 @@ section h2 {
   margin-bottom: 15px;
 }
 
+/* Formulários */
 form {
   display: flex;
   flex-direction: column;
