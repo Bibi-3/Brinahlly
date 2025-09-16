@@ -24,29 +24,32 @@ header {
 
 nav { margin-top: 10px; }
 
-/* Botões */
-.btn {
-  background: linear-gradient(45deg, #FFD700, #FFEC8B, #FFD700);
-  background-size: 200% 200%;
-  animation: glitter 3s infinite linear;
-  color: #333;
-  padding: 10px 20px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-weight: bold;
-  margin: 5px;
-  display: inline-block;
-  cursor: pointer;
+/* Botões padrão (Comprar) */
+.card button {
+  background-color: gold;
   border: none;
+  color: #333;
+  padding: 6px 10px;
+  margin: 3px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
 }
 
-.btn:hover { transform: scale(1.05); }
-
-.btn-outline {
-  background: transparent;
-  border: 2px solid #FFD700;
-  color: #FFD700;
+/* Botão "Adicionar ao carrinho" transparente */
+.card button:nth-of-type(2) {
+  background-color: transparent;
+  border: 2px solid gold;
+  color: gold;
 }
+
+.card button:nth-of-type(2):hover {
+  background-color: rgba(255, 215, 0, 0.1); /* dourado suave no hover */
+  color: #e6c300;
+  border-color: #e6c300;
+}
+
 
 /* Glitter dourado */
 @keyframes glitter {
