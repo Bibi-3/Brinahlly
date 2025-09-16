@@ -22,8 +22,6 @@ header {
   margin-top: 5px;
 }
 
-nav { margin-top: 10px; }
-
 /* Botões */
 .btn {
   background: linear-gradient(45deg, #FFD700, #FFEC8B, #FFD700);
@@ -73,39 +71,68 @@ main { padding: 20px; }
 }
 
 .card {
-  background: #fdfdfd;
-  border: 1px solid #FFD700;
-  border-radius: 15px;
+  background-color: #B695C0; /* lilás */
+  color: white;
+  border: 2px solid gold;
+  border-radius: 8px; /* cantos menos arredondados */
   padding: 15px;
+  width: 250px;  /* largura fixa */
+  height: 250px; /* altura fixa para quadrado */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   text-align: center;
-  transition: 0.3s;
-  position: relative;
-  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-
-.card::before, .card::after {
-  content: "✿ ✿ ✿";
-  position: absolute;
-  font-size: 12px;
-  color: #FFD700;
-  width: 100%;
-  text-align: center;
-}
-.card::before { top: 5px; left: 0; }
-.card::after { bottom: 5px; left: 0; }
 
 .card img {
-  width: 100%;
-  border-radius: 10px;
+  width: 100px; 
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
   margin-bottom: 10px;
 }
 
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+.card h3 {
+  font-size: 1rem;
+  color: gold;
+  margin: 5px 0;
 }
 
-.actions { margin-top: 10px; }
+.card p {
+  font-size: 0.85rem;
+  color: #fff9f0;
+  flex-grow: 1;
+  margin: 5px 0;
+}
+
+/* Botões padrão (Comprar) */
+.card button {
+  background-color: gold;
+  border: none;
+  color: #333;
+  padding: 6px 10px;
+  margin: 3px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+/* Botão "Adicionar ao carrinho" transparente */
+.card button:nth-of-type(2) {
+  background-color: transparent;
+  border: 2px solid gold;
+  color: gold;
+}
+
+.card button:nth-of-type(2):hover {
+  background-color: rgba(255, 215, 0, 0.1); /* dourado suave no hover */
+  color: #e6c300;
+  border-color: #e6c300;
+}
 
 /* Formulários */
 .form-section {
@@ -189,3 +216,37 @@ footer {
 .dropdown a:hover { background: #FFD70033; }
 
 .dropdown.active { display: block; }
+
+.profile-btn { position: relative; }
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #B695C0;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+.produtos-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colunas fixas */
+  gap: 20px; /* espaçamento entre os cards */
+  justify-items: center;
+  margin-top: 20px;
+}
+
+/* Responsivo para telas menores */
+@media (max-width: 1024px) {
+  .produtos-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .produtos-container {
+    grid-template-columns: 1fr; /* 1 coluna em celulares */
+  }
+}
+
