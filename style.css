@@ -1,36 +1,154 @@
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  background: #f9f9f9;
+  font-family: 'Arial', sans-serif;
+  background: #fff;
   color: #333;
   line-height: 1.6;
 }
 
 /* Header */
 header {
-  text-align: center;
   background: #B695C0;
   color: white;
+  text-align: center;
   padding: 20px;
   position: relative;
 }
 
-header h1 {
-  font-size: 2rem;
-}
-
-header .slogan {
+.slogan {
   font-style: italic;
-  font-size: 1rem;
+  margin-top: 5px;
 }
 
-/* Menu suspenso */
+nav { margin-top: 10px; }
+
+/* Botões */
+.btn {
+  background: linear-gradient(45deg, #FFD700, #FFEC8B, #FFD700);
+  background-size: 200% 200%;
+  animation: glitter 3s infinite linear;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 5px;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+}
+
+.btn:hover { transform: scale(1.05); }
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #FFD700;
+  color: #FFD700;
+}
+
+/* Glitter dourado */
+@keyframes glitter {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Layout */
+main { padding: 20px; }
+
+.produtos h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #B695C0;
+  border-bottom: 2px dashed #FFD700;
+  padding-bottom: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #fdfdfd;
+  border: 1px solid #FFD700;
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before, .card::after {
+  content: "✿ ✿ ✿";
+  position: absolute;
+  font-size: 12px;
+  color: #FFD700;
+  width: 100%;
+  text-align: center;
+}
+.card::before { top: 5px; left: 0; }
+.card::after { bottom: 5px; left: 0; }
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.actions { margin-top: 10px; }
+
+/* Formulários */
+.form-section {
+  max-width: 400px;
+  margin: auto;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  border: 1px solid #FFD700;
+}
+
+.form-section h2 {
+  color: #B695C0;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+form label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+footer {
+  background: #B695C0;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+/* Navegação de páginas */
+.page { display: none; }
+.active { display: block; }
+
+/* Menu perfil */
 .profile-menu {
   position: absolute;
   top: 20px;
@@ -38,22 +156,26 @@ header .slogan {
 }
 
 .profile-btn {
-  background: transparent;
+  background: #FFD700;
   border: none;
-  font-size: 24px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  color: white;
+  font-size: 20px;
+  line-height: 40px;
 }
 
 .dropdown {
   display: none;
   position: absolute;
   right: 0;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  min-width: 160px;
-  z-index: 1000;
+  background: #fff;
+  border: 1px solid #FFD700;
+  border-radius: 10px;
+  margin-top: 5px;
+  min-width: 180px;
+  z-index: 100;
 }
 
 .dropdown a {
@@ -61,173 +183,9 @@ header .slogan {
   padding: 10px;
   text-decoration: none;
   color: #333;
+  border-bottom: 1px solid #eee;
 }
 
-.dropdown a:hover {
-  background: #f0f0f0;
-}
+.dropdown a:hover { background: #FFD70033; }
 
-.show {
-  display: block;
-}
-
-/* Seção de produtos */
-.produtos {
-  padding: 30px 20px;
-  text-align: center;
-}
-
-.produtos h2 {
-  color: #B695C0;
-  margin-bottom: 20px;
-}
-
-/* Grid de produtos */
-.produtos-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  justify-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* Responsividade */
-@media (max-width: 1024px) {
-  .produtos-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .produtos-container {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Cards */
-.card {
-  background-color: #B695C0;
-  color: white;
-  border: 2px solid gold;
-  border-radius: 8px;
-  padding: 15px;
-  width: 250px;
-  height: 250px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.card img {
-  width: 100px; 
-  height: 100px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 10px;
-}
-
-.card h3 {
-  font-size: 1rem;
-  color: gold;
-  margin: 5px 0;
-}
-
-.card p {
-  font-size: 0.85rem;
-  color: #fff9f0;
-  flex-grow: 1;
-  margin: 5px 0;
-}
-
-/* Botões dos cards */
-.card button {
-  padding: 6px 10px;
-  margin: 3px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.85rem;
-  transition: all 0.3s ease;
-}
-
-/* Comprar */
-.card button:first-of-type {
-  background-color: gold;
-  border: none;
-  color: #333;
-}
-
-.card button:first-of-type:hover {
-  background-color: #e6c300;
-}
-
-/* Adicionar ao carrinho */
-.card button:nth-of-type(2) {
-  background-color: transparent;
-  border: 2px solid gold;
-  color: gold;
-}
-
-.card button:nth-of-type(2):hover {
-  background-color: rgba(255, 215, 0, 0.1);
-  color: #e6c300;
-  border-color: #e6c300;
-}
-
-/* Seções de login/cadastro */
-.hidden {
-  display: none;
-}
-
-section {
-  margin: 30px auto;
-  padding: 20px;
-  max-width: 400px;
-  background: #fff;
-  border: 2px solid #B695C0;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-section h2 {
-  text-align: center;
-  color: #B695C0;
-  margin-bottom: 15px;
-}
-
-/* Formulários */
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-form label {
-  margin: 5px 0 2px;
-  color: #333;
-}
-
-form input {
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-form button {
-  background: #B695C0;
-  border: none;
-  padding: 10px;
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-form button:hover {
-  background: #9d75af;
-}
+.dropdown.active { display: block; }
