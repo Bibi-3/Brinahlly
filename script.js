@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Dropdown do perfil
 function toggleDropdown() {
-  document.getElementById("dropdownMenu").classList.toggle("show");
+  document.getElementById("dropdownMenu").classList.toggle("active");
 }
 
 // Função para mostrar páginas (Login/Cadastro)
