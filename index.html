@@ -107,43 +107,37 @@
   </div>
 </section>
 
-
     <!-- Página de Login -->
-    <section id="login" class="page">
-      <div class="form-section">
-        <h2>Login</h2>
-        <form id="loginForm">
-          <label>Email ou Usuário:</label>
-          <input type="text" id="loginUser" required>
+<section id="login" class="hidden">
+  <h2>Login</h2>
+  <form onsubmit="return loginUser(event)">
+    <label for="login-email">E-mail ou Usuário:</label>
+    <input type="text" id="login-email" required>
 
-          <label>Senha:</label>
-          <input type="password" id="loginPass" required>
+    <label for="login-senha">Senha:</label>
+    <input type="password" id="login-senha" required>
 
-          <button type="submit" class="btn">Entrar</button>
-        </form>
-        <p>Não tem conta? <a href="#" onclick="showPage('cadastro')">Cadastre-se</a></p>
-      </div>
-    </section>
+    <button type="submit">Entrar</button>
+  </form>
+</section>
 
-    <!-- Página de Cadastro -->
-    <section id="cadastro" class="page">
-      <div class="form-section">
-        <h2>Cadastro</h2>
-        <form id="cadastroForm">
-          <label>Email:</label>
-          <input type="email" id="email" required>
+<!-- Página de Cadastro -->
+<section id="cadastro" class="hidden">
+  <h2>Cadastro</h2>
+  <form onsubmit="return cadastrarUser(event)">
+    <label for="cadastro-email">E-mail:</label>
+    <input type="email" id="cadastro-email" required>
 
-          <label>Senha:</label>
-          <input type="password" id="senha" required>
+    <label for="cadastro-senha">Senha:</label>
+    <input type="password" id="cadastro-senha" required>
 
-          <label>Confirmar Senha:</label>
-          <input type="password" id="confirmaSenha" required>
+    <label for="cadastro-confirma">Confirmar Senha:</label>
+    <input type="password" id="cadastro-confirma" required>
 
-          <button type="submit" class="btn">Cadastrar-se</button>
-        </form>
-        <p>Já possui conta? <a href="#" onclick="showPage('login')">Faça login</a></p>
-      </div>
-    </section>
+    <button type="submit">Cadastrar-se</button>
+  </form>
+</section>
+
   </main>
 
   <footer>
