@@ -255,12 +255,12 @@ footer {
 }
 
 section {
-  margin: 50px auto;
+  margin: 30px auto;
   padding: 20px;
   max-width: 400px;
   background: #fff;
   border: 2px solid #B695C0;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 section h2 {
