@@ -1,5 +1,9 @@
 /* Reset */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   font-family: 'Arial', sans-serif;
@@ -8,13 +12,11 @@ body {
   line-height: 1.6;
 }
 
-/* Header */
 header {
   background: #B695C0;
   color: white;
   text-align: center;
   padding: 20px;
-  position: relative;
 }
 
 .slogan {
@@ -22,11 +24,12 @@ header {
   margin-top: 5px;
 }
 
-/* Botões */
+nav {
+  margin-top: 10px;
+}
+
 .btn {
-  background: linear-gradient(45deg, #FFD700, #FFEC8B, #FFD700);
-  background-size: 200% 200%;
-  animation: glitter 3s infinite linear;
+  background: #FFD700;
   color: #333;
   padding: 10px 20px;
   border-radius: 20px;
@@ -34,11 +37,11 @@ header {
   font-weight: bold;
   margin: 5px;
   display: inline-block;
-  cursor: pointer;
-  border: none;
 }
 
-.btn:hover { transform: scale(1.05); }
+.btn:hover {
+  background: #e6c200;
+}
 
 .btn-outline {
   background: transparent;
@@ -46,22 +49,14 @@ header {
   color: #FFD700;
 }
 
-/* Glitter dourado */
-@keyframes glitter {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+main {
+  padding: 20px;
 }
-
-/* Layout */
-main { padding: 20px; }
 
 .produtos h2 {
   text-align: center;
   margin-bottom: 20px;
   color: #B695C0;
-  border-bottom: 2px dashed #FFD700;
-  padding-bottom: 10px;
 }
 
 .grid {
@@ -71,70 +66,24 @@ main { padding: 20px; }
 }
 
 .card {
-  background-color: #B695C0;
-  color: white;
-  border: 2px solid gold;
-  border-radius: 8px;
+  background: #fdfdfd;
+  border: 1px solid #eee;
+  border-radius: 15px;
   padding: 15px;
-  width: 250px;
-  height: 250px;
-  display: flex;
-  flex-direction: column;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
-  margin: 0;     /* remove centralização automática */
+  transition: 0.3s;
 }
-
 
 .card img {
-  width: 100px; 
-  height: 100px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 10px;
+  width: 100%;
+  border-radius: 10px;
 }
 
-.card h3 {
-  font-size: 1rem;
-  color: gold;
-  margin: 5px 0;
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.card p {
-  font-size: 0.85rem;
-  color: #fff9f0;
-  flex-grow: 1;
-  margin: 5px 0;
-}
-
-/* Botões padrão (Comprar) */
-.card button {
-  background-color: gold;
-  border: none;
-  color: #333;
-  padding: 6px 10px;
-  margin: 3px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.85rem;
-  transition: all 0.3s ease;
-}
-
-/* Botão "Adicionar ao carrinho" transparente */
-.card button:nth-of-type(2) {
-  background-color: transparent;
-  border: 2px solid gold;
-  color: gold;
-}
-
-.card button:nth-of-type(2):hover {
-  background-color: rgba(255, 215, 0, 0.1); /* dourado suave no hover */
-  color: #e6c300;
-  border-color: #e6c300;
-}
-
-/* Formulários */
 .form-section {
   max-width: 400px;
   margin: auto;
@@ -142,13 +91,11 @@ main { padding: 20px; }
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  border: 1px solid #FFD700;
 }
 
 .form-section h2 {
   color: #B695C0;
   margin-bottom: 15px;
-  text-align: center;
 }
 
 form label {
@@ -169,133 +116,4 @@ footer {
   text-align: center;
   padding: 15px;
   margin-top: 20px;
-}
-
-/* Navegação de páginas */
-.page { display: none; }
-.active { display: block; }
-
-/* Menu perfil */
-.profile-menu {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
-.profile-btn {
-  background: #FFD700;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  font-size: 20px;
-  line-height: 40px;
-}
-
-.dropdown {
-  display: none;
-  position: absolute;
-  right: 0;
-  background: #fff;
-  border: 1px solid #FFD700;
-  border-radius: 10px;
-  margin-top: 5px;
-  min-width: 180px;
-  z-index: 100;
-}
-
-.dropdown a {
-  display: block;
-  padding: 10px;
-  text-decoration: none;
-  color: #333;
-  border-bottom: 1px solid #eee;
-}
-
-.dropdown a:hover { background: #FFD70033; }
-
-.dropdown.active { display: block; }
-
-.profile-btn { position: relative; }
-.cart-badge {
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  background: #B695C0;
-  color: #fff;
-  border-radius: 50%;
-  padding: 2px 6px;
-  font-size: 12px;
-}
-
-.produtos-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 colunas no desktop */
-  gap: 20px;
-  width: 100%;              /* ocupa toda a largura da tela */
-  max-width: 100%;          /* não limita em 1200px */
-  margin: 0 auto;           /* mantém centralizado */
-  padding: 20px 40px;       /* respiro lateral */
-  box-sizing: border-box;   /* padding incluso na largura */
-}
-
-/* Responsividade */
-@media (max-width: 1024px) {
-  .produtos-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablet */
-  }
-}
-
-@media (max-width: 600px) {
-  .produtos-container {
-    grid-template-columns: 1fr; /* 1 coluna em celular */
-  }
-}
-
-section {
-  margin: 30px auto;
-  padding: 20px;
-  width: 100%;
-  max-width: 400px;
-  background: #fff;
-  border: 2px solid #B695C0;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-section h2 {
-  text-align: center;
-  color: #B695C0;
-  margin-bottom: 15px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-form label {
-  margin: 5px 0 2px;
-  color: #333;
-}
-
-form input {
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-form button {
-  background: #B695C0;
-  padding: 10px;
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-form button:hover {
-  background: #9d75af;
 }
