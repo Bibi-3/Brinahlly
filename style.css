@@ -83,6 +83,8 @@ main { padding: 20px; }
   text-align: center;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;   /* ocupa o espaço da coluna */
+  margin: 0;     /* remove centralização automática */
 }
 
 .card img {
