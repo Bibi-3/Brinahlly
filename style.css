@@ -1,133 +1,191 @@
 /* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #fdfdfd;
+  font-family: 'Arial', sans-serif;
+  background: #fff;
   color: #333;
+  line-height: 1.6;
 }
 
-/* Cabeçalho */
+/* Header */
 header {
   background: #B695C0;
   color: white;
   text-align: center;
   padding: 20px;
-}
-
-header h1 {
-  font-size: 2.5em;
+  position: relative;
 }
 
 .slogan {
   font-style: italic;
+  margin-top: 5px;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 10px;
-}
+nav { margin-top: 10px; }
 
-nav ul li {
-  margin: 0 10px;
-}
-
-nav ul li a {
-  color: white;
+/* Botões */
+.btn {
+  background: linear-gradient(45deg, #FFD700, #FFEC8B, #FFD700);
+  background-size: 200% 200%;
+  animation: glitter 3s infinite linear;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 20px;
   text-decoration: none;
   font-weight: bold;
+  margin: 5px;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
 }
 
-/* Produtos */
-#produtos {
-  padding: 30px;
+.btn:hover { transform: scale(1.05); }
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #FFD700;
+  color: #FFD700;
+}
+
+/* Glitter dourado */
+@keyframes glitter {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Layout */
+main { padding: 20px; }
+
+.produtos h2 {
   text-align: center;
+  margin-bottom: 20px;
+  color: #B695C0;
+  border-bottom: 2px dashed #FFD700;
+  padding-bottom: 10px;
 }
 
-.produtos-container {
+.grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 por linha */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  max-width: 1100px;
-  margin: 0 auto;
 }
 
 .card {
-  background: #B695C0;
-  border-radius: 10px;
+  background: #fdfdfd;
+  border: 1px solid #FFD700;
+  border-radius: 15px;
   padding: 15px;
   text-align: center;
-  color: white;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
 }
+
+.card::before, .card::after {
+  content: "✿ ✿ ✿";
+  position: absolute;
+  font-size: 12px;
+  color: #FFD700;
+  width: 100%;
+  text-align: center;
+}
+.card::before { top: 5px; left: 0; }
+.card::after { bottom: 5px; left: 0; }
 
 .card img {
   width: 100%;
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .card:hover {
   transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.card button {
-  margin: 10px 5px;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-}
+.actions { margin-top: 10px; }
 
-.card .comprar {
-  background: gold;
-  border: none;
-  color: #000;
-}
-
-.card .carrinho {
-  background: transparent;
-  border: 2px solid gold;
-  color: gold;
-}
-
-/* Login e Cadastro */
-section {
-  margin: 30px auto;
-  padding: 20px;
+/* Formulários */
+.form-section {
   max-width: 400px;
-  background: #fff;
-  border: 2px solid #B695C0;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin: auto;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  border: 1px solid #FFD700;
 }
 
-section.hidden {
-  display: none;
+.form-section h2 {
+  color: #B695C0;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
+form label {
+  display: block;
+  margin: 10px 0 5px;
 }
 
-form input, form button {
-  margin: 8px 0;
+form input {
+  width: 100%;
   padding: 10px;
-  border-radius: 5px;
   border: 1px solid #ccc;
+  border-radius: 10px;
 }
 
-form button {
+footer {
   background: #B695C0;
   color: white;
-  border: none;
-  cursor: pointer;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
 }
+
+/* Navegação de páginas */
+.page { display: none; }
+.active { display: block; }
+
+/* Menu perfil */
+.profile-menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.profile-btn {
+  background: #FFD700;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 40px;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: #fff;
+  border: 1px solid #FFD700;
+  border-radius: 10px;
+  margin-top: 5px;
+  min-width: 180px;
+  z-index: 100;
+}
+
+.dropdown a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+
+.dropdown a:hover { background: #FFD70033; }
+
+.dropdown.active { display: block; }
