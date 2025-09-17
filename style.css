@@ -1,9 +1,5 @@
 /* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   font-family: 'Arial', sans-serif;
@@ -12,11 +8,13 @@ body {
   line-height: 1.6;
 }
 
+/* Header */
 header {
   background: #B695C0;
   color: white;
   text-align: center;
   padding: 20px;
+  position: relative;
 }
 
 .slogan {
@@ -24,12 +22,13 @@ header {
   margin-top: 5px;
 }
 
-nav {
-  margin-top: 10px;
-}
+nav { margin-top: 10px; }
 
+/* Botões */
 .btn {
-  background: #FFD700;
+  background: linear-gradient(45deg, #FFD700, #FFEC8B, #FFD700);
+  background-size: 200% 200%;
+  animation: glitter 3s infinite linear;
   color: #333;
   padding: 10px 20px;
   border-radius: 20px;
@@ -37,11 +36,11 @@ nav {
   font-weight: bold;
   margin: 5px;
   display: inline-block;
+  cursor: pointer;
+  border: none;
 }
 
-.btn:hover {
-  background: #e6c200;
-}
+.btn:hover { transform: scale(1.05); }
 
 .btn-outline {
   background: transparent;
@@ -49,14 +48,22 @@ nav {
   color: #FFD700;
 }
 
-main {
-  padding: 20px;
+/* Glitter dourado */
+@keyframes glitter {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
+
+/* Layout */
+main { padding: 20px; }
 
 .produtos h2 {
   text-align: center;
   margin-bottom: 20px;
   color: #B695C0;
+  border-bottom: 2px dashed #FFD700;
+  padding-bottom: 10px;
 }
 
 .grid {
@@ -67,16 +74,30 @@ main {
 
 .card {
   background: #fdfdfd;
-  border: 1px solid #eee;
+  border: 1px solid #FFD700;
   border-radius: 15px;
   padding: 15px;
   text-align: center;
   transition: 0.3s;
+  position: relative;
+  overflow: hidden;
 }
+
+.card::before, .card::after {
+  content: "✿ ✿ ✿";
+  position: absolute;
+  font-size: 12px;
+  color: #FFD700;
+  width: 100%;
+  text-align: center;
+}
+.card::before { top: 5px; left: 0; }
+.card::after { bottom: 5px; left: 0; }
 
 .card img {
   width: 100%;
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .card:hover {
@@ -84,6 +105,9 @@ main {
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
+.actions { margin-top: 10px; }
+
+/* Formulários */
 .form-section {
   max-width: 400px;
   margin: auto;
@@ -91,11 +115,13 @@ main {
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  border: 1px solid #FFD700;
 }
 
 .form-section h2 {
   color: #B695C0;
   margin-bottom: 15px;
+  text-align: center;
 }
 
 form label {
@@ -117,3 +143,49 @@ footer {
   padding: 15px;
   margin-top: 20px;
 }
+
+/* Navegação de páginas */
+.page { display: none; }
+.active { display: block; }
+
+/* Menu perfil */
+.profile-menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.profile-btn {
+  background: #FFD700;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 40px;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: #fff;
+  border: 1px solid #FFD700;
+  border-radius: 10px;
+  margin-top: 5px;
+  min-width: 180px;
+  z-index: 100;
+}
+
+.dropdown a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+
+.dropdown a:hover { background: #FFD70033; }
+
+.dropdown.active { display: block; }
