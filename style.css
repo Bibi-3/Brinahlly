@@ -71,25 +71,26 @@ main { padding: 20px; }
 }
 
 .card {
-  background: #fdfdfd;
-  border: 1px solid #FFD700;
-  border-radius: 15px;
-  padding: 15px;
-  text-align: center;
-  transition: 0.3s;
-  position: relative;
-  overflow: hidden;
+  background-color: #B695C0; /* Lilás principal */
+  color: white; /* texto em branco para contraste */
+  border: 2px solid gold; /* contorno dourado */
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
+.card h3 {
+  color: gold; /* título em dourado */
+}
+
+.card p {
+  color: #fff9f0; /* descrição em tom claro */
 }
 
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
 .actions { margin-top: 10px; }
