@@ -231,23 +231,23 @@ footer {
 
 .produtos-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  grid-template-columns: repeat(4, 1fr); /* 4 colunas fixas no desktop */
   gap: 20px;
-  max-width: 1200px;   /* controla largura máxima */
-  margin: 0 auto;      /* centraliza o grid */
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
 }
 
-/* Responsivo para telas menores */
+/* Responsividade */
 @media (max-width: 1024px) {
   .produtos-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets */
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablet */
   }
 }
 
 @media (max-width: 600px) {
   .produtos-container {
-    grid-template-columns: 1fr; /* 1 coluna em celulares */
+    grid-template-columns: 1fr; /* 1 coluna em celular */
   }
 }
 
