@@ -6,9 +6,6 @@ body {
   background: #fff;
   color: #333;
   line-height: 1.6;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 /* Header */
@@ -235,8 +232,8 @@ footer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
   gap: 20px;
-  max-width: 1200px;   /* limita a largura máxima */
-  margin: 0 auto;      /* centraliza no meio */
+  max-width: 1200px;   /* controla largura máxima */
+  margin: 0 auto;      /* centraliza o grid */
   padding: 20px;
 }
 
@@ -261,7 +258,7 @@ section {
   margin: 30px auto;
   padding: 20px;
   width: 100%;
-  max-width: 400px; /* nunca maior que 400px */
+  max-width: 400px;
   background: #fff;
   border: 2px solid #B695C0;
   border-radius: 10px;
