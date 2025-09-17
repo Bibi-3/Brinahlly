@@ -231,11 +231,13 @@ footer {
 
 .produtos-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 colunas fixas no desktop */
+  grid-template-columns: repeat(4, 1fr); /* 4 colunas no desktop */
   gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  width: 100%;              /* ocupa toda a largura da tela */
+  max-width: 100%;          /* não limita em 1200px */
+  margin: 0 auto;           /* mantém centralizado */
+  padding: 20px 40px;       /* respiro lateral */
+  box-sizing: border-box;   /* padding incluso na largura */
 }
 
 /* Responsividade */
