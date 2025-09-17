@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,133 +7,100 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Cabeçalho -->
   <header>
     <h1>Brinahlly Beauty</h1>
     <p class="slogan">A essência da sofisticação em cada detalhe</p>
     <nav>
-      <button class="btn" onclick="showPage('home')">Home</button>
-      <button class="btn" onclick="showPage('login')">Login</button>
-      <button class="btn btn-outline" onclick="showPage('cadastro')">Cadastro</button>
+      <ul>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#perfil">Perfil</a></li>
+        <li><a href="#carrinho">Meu Carrinho</a></li>
+        <li><a href="#compras">Minhas Compras</a></li>
+        <li><a href="#notificacoes">Notificações</a></li>
+        <li><a href="#" onclick="mostrarLogin()">Login</a></li>
+        <li><a href="#" onclick="mostrarCadastro()">Cadastro</a></li>
+      </ul>
     </nav>
-
-    <div class="profile-menu">
-      <button class="profile-btn" onclick="toggleDropdown()">👤</button>
-      <div class="dropdown" id="dropdownMenu">
-        <a href="#">Meu perfil</a>
-        <a href="#">Meu carrinho</a>
-        <a href="#">Minhas compras</a>
-        <a href="#">Notificações</a>
-      </div>
-    </div>
   </header>
 
-  <main>
-    <!-- Página inicial -->
-    <section id="home" class="page active">
-      <section class="produtos">
-        <h2>Nossos Produtos</h2>
-        <div class="grid">
-          <!-- Femininos -->
-          <div class="card">
-            <img src="produto1.jpg" alt="Body Splash Floral">
-            <h3>Floral Dream</h3>
-            <p>Notas suaves de flores frescas.</p>
-            <div class="actions">
-              <button class="btn">Comprar</button>
-              <button class="btn btn-outline">Adicionar ao Carrinho</button>
-            </div>
-          </div>
-          <div class="card">
-            <img src="produto2.jpg" alt="Body Splash Frutado">
-            <h3>Fruit Passion</h3>
-            <p>Aroma doce e marcante de frutas tropicais.</p>
-            <div class="actions">
-              <button class="btn">Comprar</button>
-              <button class="btn btn-outline">Adicionar ao Carrinho</button>
-            </div>
-          </div>
-          <div class="card">
-            <img src="produto3.jpg" alt="Perfume Feminino Elegance">
-            <h3>Elegance Rose</h3>
-            <p>Perfume feminino sofisticado com toque floral.</p>
-            <div class="actions">
-              <button class="btn">Comprar</button>
-              <button class="btn btn-outline">Adicionar ao Carrinho</button>
-            </div>
-          </div>
-          <!-- Masculinos -->
-          <div class="card">
-            <img src="produto4.jpg" alt="Body Splash Amadeirado">
-            <h3>Golden Wood</h3>
-            <p>Elegância com notas amadeiradas e sofisticadas.</p>
-            <div class="actions">
-              <button class="btn">Comprar</button>
-              <button class="btn btn-outline">Adicionar ao Carrinho</button>
-            </div>
-          </div>
-          <div class="card">
-            <img src="produto5.jpg" alt="Perfume Masculino Black Night">
-            <h3>Black Night</h3>
-            <p>Perfume masculino intenso com notas orientais.</p>
-            <div class="actions">
-              <button class="btn">Comprar</button>
-              <button class="btn btn-outline">Adicionar ao Carrinho</button>
-            </div>
-          </div>
-          <div class="card">
-            <img src="produto6.jpg" alt="Perfume Masculino Fresh Sea">
-            <h3>Fresh Sea</h3>
-            <p>Perfume refrescante com notas marinhas.</p>
-            <div class="actions">
-              <button class="btn">Comprar</button>
-              <button class="btn btn-outline">Adicionar ao Carrinho</button>
-            </div>
-          </div>
-        </div>
-      </section>
-    </section>
+  <!-- Produtos -->
+  <section id="produtos">
+    <h2>Nossos Produtos</h2>
+    <div class="produtos-container">
 
-    <!-- Página de Login -->
-    <section id="login" class="page">
-      <div class="form-section">
-        <h2>Login</h2>
-        <form id="loginForm">
-          <label>Email ou Usuário:</label>
-          <input type="text" id="loginUser" required>
-
-          <label>Senha:</label>
-          <input type="password" id="loginPass" required>
-
-          <button type="submit" class="btn">Entrar</button>
-        </form>
-        <p>Não tem conta? <a href="#" onclick="showPage('cadastro')">Cadastre-se</a></p>
+      <div class="card">
+        <img src="img/body1.jpg" alt="Body Splash Floral">
+        <h3>Body Splash Floral</h3>
+        <p>R$ 59,90</p>
+        <button class="comprar">Comprar</button>
+        <button class="carrinho">Adicionar ao Carrinho</button>
       </div>
-    </section>
 
-    <!-- Página de Cadastro -->
-    <section id="cadastro" class="page">
-      <div class="form-section">
-        <h2>Cadastro</h2>
-        <form id="cadastroForm">
-          <label>Email:</label>
-          <input type="email" id="email" required>
-
-          <label>Senha:</label>
-          <input type="password" id="senha" required>
-
-          <label>Confirmar Senha:</label>
-          <input type="password" id="confirmaSenha" required>
-
-          <button type="submit" class="btn">Cadastrar-se</button>
-        </form>
-        <p>Já possui conta? <a href="#" onclick="showPage('login')">Faça login</a></p>
+      <div class="card">
+        <img src="img/body2.jpg" alt="Body Splash Frutado">
+        <h3>Body Splash Frutado</h3>
+        <p>R$ 62,90</p>
+        <button class="comprar">Comprar</button>
+        <button class="carrinho">Adicionar ao Carrinho</button>
       </div>
-    </section>
-  </main>
 
-  <footer>
-    <p>&copy; 2025 Brinahlly Beauty - Todos os direitos reservados</p>
-  </footer>
+      <div class="card">
+        <img src="img/body3.jpg" alt="Body Splash Cítrico">
+        <h3>Body Splash Cítrico</h3>
+        <p>R$ 55,90</p>
+        <button class="comprar">Comprar</button>
+        <button class="carrinho">Adicionar ao Carrinho</button>
+      </div>
+
+      <div class="card">
+        <img src="img/perfume1.jpg" alt="Perfume Elegance">
+        <h3>Perfume Elegance</h3>
+        <p>R$ 129,90</p>
+        <button class="comprar">Comprar</button>
+        <button class="carrinho">Adicionar ao Carrinho</button>
+      </div>
+
+      <div class="card">
+        <img src="img/perfume2.jpg" alt="Perfume Intense">
+        <h3>Perfume Intense</h3>
+        <p>R$ 139,90</p>
+        <button class="comprar">Comprar</button>
+        <button class="carrinho">Adicionar ao Carrinho</button>
+      </div>
+
+      <div class="card">
+        <img src="img/perfume3.jpg" alt="Perfume Fresh">
+        <h3>Perfume Fresh</h3>
+        <p>R$ 119,90</p>
+        <button class="comprar">Comprar</button>
+        <button class="carrinho">Adicionar ao Carrinho</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Login -->
+  <section id="login" class="hidden">
+    <h2>Login</h2>
+    <form>
+      <input type="text" placeholder="E-mail ou Usuário" required>
+      <input type="password" placeholder="Senha" required>
+      <button type="submit">Entrar</button>
+    </form>
+  </section>
+
+  <!-- Cadastro -->
+  <section id="cadastro" class="hidden">
+    <h2>Cadastro</h2>
+    <form>
+      <input type="email" placeholder="E-mail" required>
+      <input type="password" placeholder="Senha" required>
+      <input type="password" placeholder="Confirmar Senha" required>
+      <button type="submit">Cadastrar-se</button>
+    </form>
+  </section>
 
   <script src="script.js"></script>
 </body>
