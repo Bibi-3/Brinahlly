@@ -29,7 +29,7 @@ nav { margin-top: 10px; }
   background: linear-gradient(45deg, #ffffff, #ffffff, #ffffff);
   background-size: 200% 200%;
   animation: glitter 3s infinite linear;
-  color: #B695C0;
+  color: #b788e4;
   padding: 10px 20px;
   border-radius: 20px;
   text-decoration: none;
@@ -61,7 +61,7 @@ main { padding: 20px; }
 .produtos h2 {
   text-align: center;
   margin-bottom: 20px;
-  color: #896c92;
+  color: #b788e4;
   border-bottom: 2px dashed #ffffff;
   padding-bottom: 10px;
 }
@@ -73,7 +73,7 @@ main { padding: 20px; }
 }
 
 .card {
-  background-color: #896c92; /* Lilás principal */
+  background-color: #b788e4; /* Lilás principal */
   color: white; /* texto em branco para contraste */
   border: 2px solid #ffffff; /* contorno dourado */
   border-radius: 12px;
@@ -110,7 +110,7 @@ main { padding: 20px; }
 }
 
 .form-section h2 {
-  color: #896c92;
+  color: #b788e4;
   margin-bottom: 15px;
   text-align: center;
 }
@@ -128,7 +128,7 @@ form input {
 }
 
 footer {
-  background: #896c92;
+  background: #b788e4;
   color: white;
   text-align: center;
   padding: 15px;
