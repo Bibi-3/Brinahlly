@@ -62,7 +62,7 @@ main { padding: 20px; }
   text-align: center;
   margin-bottom: 20px;
   color: #b788e4;
-  border-bottom: 2px dashed #ffffff;
+  border-bottom: 2px dashed #907134;
   padding-bottom: 10px;
 }
 
@@ -129,7 +129,7 @@ form input {
 
 footer {
   background: #b788e4;
-  color: rgb(179, 39, 39);
+  color: rgb(255, 255, 255);
   text-align: center;
   padding: 15px;
   margin-top: 20px;
