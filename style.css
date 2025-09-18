@@ -129,7 +129,7 @@ form input {
 
 footer {
   background: #b788e4;
-  color: white;
+  color: rgb(179, 39, 39);
   text-align: center;
   padding: 15px;
   margin-top: 20px;
@@ -161,7 +161,7 @@ footer {
   display: none;
   position: absolute;
   right: 0;
-  background: #907134;
+  background: #ffffff;
   border: 1px solid #ffffff;
   border-radius: 10px;
   margin-top: 5px;
