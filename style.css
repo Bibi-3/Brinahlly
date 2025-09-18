@@ -10,7 +10,7 @@ body {
 
 /* Header */
 header {
-  background: #896c92;
+  background: #b788e4;
   color: white;
   text-align: center;
   padding: 20px;
@@ -44,8 +44,8 @@ nav { margin-top: 10px; }
 
 .btn-outline {
   background: transparent;
-  border: 2px solid #f6b10d;
-  color: #f6b10d;
+  border: 2px solid #ffffff;
+  color: #ffffff;
 }
 
 /* Glitter dourado */
@@ -62,7 +62,7 @@ main { padding: 20px; }
   text-align: center;
   margin-bottom: 20px;
   color: #896c92;
-  border-bottom: 2px dashed #f6b10d;
+  border-bottom: 2px dashed #ffffff;
   padding-bottom: 10px;
 }
 
@@ -75,7 +75,7 @@ main { padding: 20px; }
 .card {
   background-color: #896c92; /* Lilás principal */
   color: white; /* texto em branco para contraste */
-  border: 2px solid #f6b10d; /* contorno dourado */
+  border: 2px solid #ffffff; /* contorno dourado */
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -83,7 +83,7 @@ main { padding: 20px; }
 }
 
 .card h3 {
-  color: #f6b10d; /* título em dourado */
+  color: #ffffff; /* título em dourado */
 }
 
 .card p {
@@ -106,7 +106,7 @@ main { padding: 20px; }
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  border: 1px solid #f6b10d;
+  border: 1px solid #ffffff;
 }
 
 .form-section h2 {
@@ -147,7 +147,7 @@ footer {
 }
 
 .profile-btn {
-  background: #f6b10d;
+  background: #ffffff;
   border: none;
   border-radius: 50%;
   width: 40px;
@@ -162,7 +162,7 @@ footer {
   position: absolute;
   right: 0;
   background: #fff;
-  border: 1px solid #f6b10d;
+  border: 1px solid #ffffff;
   border-radius: 10px;
   margin-top: 5px;
   min-width: 180px;
