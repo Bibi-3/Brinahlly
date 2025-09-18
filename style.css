@@ -44,8 +44,8 @@ nav { margin-top: 10px; }
 
 .btn-outline {
   background: transparent;
-  border: 2px solid a38b049#a;
-  color: #FFD700;
+  border: 2px solid color #f6b10d;
+  color: #f6b10d;
 }
 
 /* Glitter dourado */
@@ -62,7 +62,7 @@ main { padding: 20px; }
   text-align: center;
   margin-bottom: 20px;
   color: #896c92;
-  border-bottom: 2px dashed #FFD700;
+  border-bottom: 2px dashed #f6b10d;
   padding-bottom: 10px;
 }
 
@@ -147,7 +147,7 @@ footer {
 }
 
 .profile-btn {
-  background: #D3AF37:;
+  background: #f6b10d;
   border: none;
   border-radius: 50%;
   width: 40px;
@@ -162,7 +162,7 @@ footer {
   position: absolute;
   right: 0;
   background: #fff;
-  border: 1px solid #D3AF37;
+  border: 1px solid #f6b10d;
   border-radius: 10px;
   margin-top: 5px;
   min-width: 180px;
