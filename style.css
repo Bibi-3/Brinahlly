@@ -75,7 +75,7 @@ main { padding: 20px; }
 .card {
   background-color: #896c92; /* Lilás principal */
   color: white; /* texto em branco para contraste */
-  border: 2px solid gold; /* contorno dourado */
+  border: 2px solid #f6b10d; /* contorno dourado */
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -83,7 +83,7 @@ main { padding: 20px; }
 }
 
 .card h3 {
-  color: gold; /* título em dourado */
+  color: #f6b10d; /* título em dourado */
 }
 
 .card p {
@@ -106,7 +106,7 @@ main { padding: 20px; }
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  border: 1px solid #FFD700;
+  border: 1px solid #f6b10d;
 }
 
 .form-section h2 {
