@@ -26,7 +26,7 @@ nav { margin-top: 10px; }
 
 /* Botões */
 .btn {
-  background: linear-gradient(45deg, #FFD700, #FFEC8B, #FFD700);
+  background: linear-gradient(45deg, #a89005a4, #a89005a4, #a89005a4);
   background-size: 200% 200%;
   animation: glitter 3s infinite linear;
   color: #333;
@@ -44,7 +44,7 @@ nav { margin-top: 10px; }
 
 .btn-outline {
   background: transparent;
-  border: 2px solid #a38b049a;
+  border: 2px solid a38b049#a;
   color: #FFD700;
 }
 
