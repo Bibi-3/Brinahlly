@@ -10,8 +10,8 @@ body {
 
 /* Header */
 header {
-  background: #b788e4;
-  color:#907134;
+  background: #8152ad, #b788e4, #ffffff
+  color:#ffffff;
   text-align: center;
   padding: 20px;
   position: relative;
