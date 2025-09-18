@@ -10,7 +10,7 @@ body {
 
 /* Header */
 header {
-  background: #B695C0;
+  background: #896c92;
   color: white;
   text-align: center;
   padding: 20px;
@@ -61,7 +61,7 @@ main { padding: 20px; }
 .produtos h2 {
   text-align: center;
   margin-bottom: 20px;
-  color: #B695C0;
+  color: #896c92;
   border-bottom: 2px dashed #FFD700;
   padding-bottom: 10px;
 }
@@ -73,7 +73,7 @@ main { padding: 20px; }
 }
 
 .card {
-  background-color: #B695C0; /* Lilás principal */
+  background-color: #896c92; /* Lilás principal */
   color: white; /* texto em branco para contraste */
   border: 2px solid gold; /* contorno dourado */
   border-radius: 12px;
@@ -110,7 +110,7 @@ main { padding: 20px; }
 }
 
 .form-section h2 {
-  color: #B695C0;
+  color: #896c92;
   margin-bottom: 15px;
   text-align: center;
 }
@@ -128,7 +128,7 @@ form input {
 }
 
 footer {
-  background: #B695C0;
+  background: #896c92;
   color: white;
   text-align: center;
   padding: 15px;
