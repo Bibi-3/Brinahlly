@@ -10,7 +10,7 @@ body {
 
 /* Header */
 header {
-  background: #000000;
+  background: #b788e4;
   color:#ffffff;
   text-align: center;
   padding: 20px;
@@ -24,7 +24,7 @@ nav { margin-top: 10px; }
   background: linear-gradient(45deg, rgb(255, 255, 255), #ffffff, #ffffff);
   background-size: 200% 200%;
   animation: glitter 3s infinite linear;
-  color: #b788e4;
+  color: #000000;
   padding: 10px 20px;
   border-radius: 20px;
   text-decoration: none;
