@@ -10,7 +10,7 @@ body {
 
 /* Header */
 header {
-  background: #b788e4;
+  background: #000000;
   color:#ffffff;
   text-align: center;
   padding: 20px;
@@ -43,13 +43,6 @@ nav { margin-top: 10px; }
   color: #ffffff;
 }
 
-/* Glitter dourado */
-@keyframes glitter {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
 /* Layout */
 main { padding: 20px; }
 
@@ -68,7 +61,7 @@ main { padding: 20px; }
 }
 
 .card {
-  background-color: #ffffff; /* Lilás principal */
+  background-color: #b788e4; /* Lilás principal */
   color: white; /* texto em branco para contraste */
   border: 2px solid #ffffff; /* contorno dourado */
   border-radius: 12px;
