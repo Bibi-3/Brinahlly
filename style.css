@@ -68,7 +68,7 @@ main { padding: 20px; }
 }
 
 .card {
-  background-color: #b788e4; /* Lilás principal */
+  background-color: #ffffff; /* Lilás principal */
   color: white; /* texto em branco para contraste */
   border: 2px solid #ffffff; /* contorno dourado */
   border-radius: 12px;
@@ -105,7 +105,7 @@ main { padding: 20px; }
 }
 
 .form-section h2 {
-  color: #ffffff;
+  color: #b788e4;
   margin-bottom: 15px;
   text-align: center;
 }
