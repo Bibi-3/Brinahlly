@@ -197,3 +197,35 @@ footer {
     grid-template-columns: 1fr; /* 1 coluna em celulares */
   }
 }
+
+/* Barra de pesquisa */
+.search-bar {
+  position: absolute;       /* fica no canto superior esquerdo */
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.search-bar input {
+  padding: 8px 12px;
+  border: 2px solid #B695C0;
+  border-radius: 20px;
+  outline: none;
+  font-size: 14px;
+}
+
+.search-bar button {
+  background: #B695C0;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.search-bar button:hover {
+  background: #9e7bb3;
+}
