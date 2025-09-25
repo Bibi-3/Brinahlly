@@ -38,3 +38,24 @@ document.addEventListener("DOMContentLoaded", () => {
 function toggleDropdown() {
   document.getElementById("dropdownMenu").classList.toggle("active");
 }
+
+// Função de pesquisa para filtrar os cards
+document.addEventListener("DOMContentLoaded", () => {
+  const searchInput = document.querySelector(".search-bar input");
+  const cards = document.querySelectorAll(".card");
+
+  if (searchInput) {
+    searchInput.addEventListener("input", () => {
+      const termo = searchInput.value.toLowerCase();
+
+      cards.forEach(card => {
+        const titulo = card.querySelector("h3").textContent.toLowerCase();
+        if (titulo.includes(termo)) {
+          card.style.display = "block"; // mostra
+        } else {
+          card.style.display = "none"; // esconde
+        }
+      });
+    });
+  }
+});
