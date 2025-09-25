@@ -260,13 +260,13 @@ footer {
 .footer-widget i {
   font-size: 24px;
   margin-bottom: 8px;
-  color: gold;
-  text-shadow: 0 0 6px rgba(255, 215, 0, 0.6); /* glitter dourado */
+  color: #ffffff;
+  text-shadow: 0 0 6px #ffffff(255, 215, 0, 0.6); /* glitter dourado */
 }
 
 .footer-widget:hover {
   transform: scale(1.1);
-  color: gold;
+  color: #ffffff;
 }
 
 .footer-copy {
