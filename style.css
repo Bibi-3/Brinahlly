@@ -229,3 +229,48 @@ footer {
 .search-bar button:hover {
   background: #9e7bb3;
 }
+
+/* Rodapé */
+.footer {
+  background: #B695C0;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 40px;
+}
+
+.footer-widgets {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.footer-widget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s, color 0.3s;
+  font-size: 14px;
+}
+
+.footer-widget i {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: gold;
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.6); /* glitter dourado */
+}
+
+.footer-widget:hover {
+  transform: scale(1.1);
+  color: gold;
+}
+
+.footer-copy {
+  font-size: 12px;
+  margin-top: 10px;
+  opacity: 0.9;
+}
