@@ -200,11 +200,11 @@ footer {
 
 /* Barra de pesquisa */
 .search-bar {
-  position: relative;          /* relativo ao header */
+  position: absolute;      
+  top: 20px;
+  left: 20px;
   display: flex;
-  justify-content: center;     /* centraliza no eixo horizontal */
   align-items: center;
-  margin: 20px auto;           /* espaçamento superior/inferior */
   gap: 5px;
 }
 
