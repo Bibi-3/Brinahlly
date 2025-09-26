@@ -214,6 +214,8 @@ footer {
   border-radius: 20px;
   outline: none;
   font-size: 14px;
+  width: 300px;          
+  max-width: 100%;  
 }
 
 .search-bar button {
