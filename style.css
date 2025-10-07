@@ -8,9 +8,9 @@
 :root {
     --primary-color: #a76fdb; /*geral*/
     --primary-dark: #b788e46c; /*geral 2*/
-    --primary-color: #b788e4;
+    --white: #ffffff;
     --primary-color: #b788e4; /*nomes e faixa de cima*/
-    --gray-light: #f8f8f8;
+    --gray-light: #f00606;
     --gray: #b788e4; /*lupinha e slogan*/
     --gray-dark: #444444;
     --sale: #ff4444;
