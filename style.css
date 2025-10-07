@@ -6,8 +6,8 @@
 }
 
 :root {
-    --primary-color: #B695c0;
-    --primary-dark: #9e7ca9;
+    --primary-color: #b788e4;
+    --primary-dark: #b788e4;
     --white: #ffffff;
     --black: #333333;
     --gray-light: #f8f8f8;
@@ -518,7 +518,7 @@ body {
 }
 
 .offer-banner {
-    background: linear-gradient(135deg, var(--lilas) 0%, #9e7ca9 100%);
+    background: linear-gradient(135deg, var(--lilas) 0%, #b788e4 100%);
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(183, 136, 228, 0.3);
