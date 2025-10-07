@@ -6,8 +6,8 @@
 }
 
 :root {
-    --primary-color: #000000;
-    --primary-dark: #b788e4;
+    --primary-color: #b788e4; /*geral*/
+    --primary-dark: #05000a;
     --white: #ffffff;
     --black: #333333;
     --gray-light: #f8f8f8;
