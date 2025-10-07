@@ -72,15 +72,16 @@ class BrinahllyBeauty {
         this.updateCartDisplay();
         this.updateUserInterface();
         this.setupMobileMenu();
+        this.setupSmoothScroll();
     }
 
     setupEventListeners() {
         // Navegação
-        document.getElementById('explorarBtn').addEventListener('click', () => {
+        document.getElementById('explorarBtn')?.addEventListener('click', () => {
             this.scrollToSection('produtos');
         });
 
-        document.getElementById('ofertaBtn').addEventListener('click', () => {
+        document.getElementById('ofertaBtn')?.addEventListener('click', () => {
             this.handleSpecialOffer();
         });
 
@@ -95,23 +96,26 @@ class BrinahllyBeauty {
         
         // Categorias
         this.setupCategoryHandlers();
+
+        // Busca
+        this.setupSearchHandler();
     }
 
     setupModalHandlers() {
         // Login Modal
-        document.getElementById('login-link').addEventListener('click', (e) => {
+        document.getElementById('login-link')?.addEventListener('click', (e) => {
             e.preventDefault();
             this.showModal('loginModal');
         });
 
         // Cadastro Modal
-        document.getElementById('cadastro-link').addEventListener('click', (e) => {
+        document.getElementById('cadastro-link')?.addEventListener('click', (e) => {
             e.preventDefault();
             this.showModal('registerModal');
         });
 
         // Minhas Compras
-        document.getElementById('minhas-compras-link').addEventListener('click', (e) => {
+        document.getElementById('minhas-compras-link')?.addEventListener('click', (e) => {
             e.preventDefault();
             if (this.currentUser) {
                 this.showUserOrders();
@@ -121,7 +125,7 @@ class BrinahllyBeauty {
             }
         });
 
-        document.getElementById('footerPedidos').addEventListener('click', (e) => {
+        document.getElementById('footerPedidos')?.addEventListener('click', (e) => {
             e.preventDefault();
             if (this.currentUser) {
                 this.showUserOrders();
@@ -132,13 +136,13 @@ class BrinahllyBeauty {
         });
 
         // Switch between modals
-        document.getElementById('showRegister').addEventListener('click', (e) => {
+        document.getElementById('showRegister')?.addEventListener('click', (e) => {
             e.preventDefault();
             this.hideModal('loginModal');
             this.showModal('registerModal');
         });
 
-        document.getElementById('showLogin').addEventListener('click', (e) => {
+        document.getElementById('showLogin')?.addEventListener('click', (e) => {
             e.preventDefault();
             this.hideModal('registerModal');
             this.showModal('loginModal');
@@ -161,40 +165,40 @@ class BrinahllyBeauty {
 
     setupFormHandlers() {
         // Login form
-        document.getElementById('loginForm').addEventListener('submit', (e) => {
+        document.getElementById('loginForm')?.addEventListener('submit', (e) => {
             e.preventDefault();
             this.handleLogin();
         });
 
         // Register form
-        document.getElementById('registerForm').addEventListener('submit', (e) => {
+        document.getElementById('registerForm')?.addEventListener('submit', (e) => {
             e.preventDefault();
             this.handleRegister();
         });
 
         // Newsletter
-        document.getElementById('newsletterForm').addEventListener('submit', (e) => {
+        document.getElementById('newsletterForm')?.addEventListener('submit', (e) => {
             e.preventDefault();
             this.handleNewsletter();
         });
 
         // Social login
-        document.getElementById('googleLogin').addEventListener('click', () => {
+        document.getElementById('googleLogin')?.addEventListener('click', () => {
             this.handleSocialLogin('google');
         });
 
-        document.getElementById('facebookLogin').addEventListener('click', () => {
+        document.getElementById('facebookLogin')?.addEventListener('click', () => {
             this.handleSocialLogin('facebook');
         });
     }
 
     setupCartHandlers() {
         // Finalizar compra
-        document.getElementById('finalizarCompraBtn').addEventListener('click', () => {
+        document.getElementById('finalizarCompraBtn')?.addEventListener('click', () => {
             this.handleCheckout();
         });
 
-        document.getElementById('checkoutBtn').addEventListener('click', () => {
+        document.getElementById('checkoutBtn')?.addEventListener('click', () => {
             this.handleCheckout();
         });
     }
@@ -208,18 +212,49 @@ class BrinahllyBeauty {
         });
     }
 
+    setupSearchHandler() {
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                if (searchTerm.length > 2) {
+                    this.handleSearch(searchTerm);
+                } else if (searchTerm.length === 0) {
+                    this.loadProducts();
+                }
+            });
+        }
+    }
+
     setupMobileMenu() {
         const menuToggle = document.querySelector('.menu-toggle');
         const navMenu = document.querySelector('.nav-menu');
 
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
 
-        // Close menu when clicking on links
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
+            // Close menu when clicking on links
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+    }
+
+    setupSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
     }
@@ -227,6 +262,8 @@ class BrinahllyBeauty {
     // Product Management
     loadProducts() {
         const productsGrid = document.getElementById('productsGrid');
+        if (!productsGrid) return;
+
         productsGrid.innerHTML = this.products.map(product => `
             <div class="product-card" data-id="${product.id}">
                 ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
@@ -249,20 +286,7 @@ class BrinahllyBeauty {
             </div>
         `).join('');
 
-        // Add event listeners to product buttons
-        document.querySelectorAll('.btn-comprar').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const productId = parseInt(e.target.dataset.id);
-                this.handleBuyNow(productId);
-            });
-        });
-
-        document.querySelectorAll('.btn-add-cart').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const productId = parseInt(e.target.dataset.id);
-                this.addToCart(productId);
-            });
-        });
+        this.reattachProductEventListeners();
     }
 
     filterProductsByCategory(category) {
@@ -271,6 +295,8 @@ class BrinahllyBeauty {
             : this.products.filter(product => product.category === category);
         
         const productsGrid = document.getElementById('productsGrid');
+        if (!productsGrid) return;
+
         productsGrid.innerHTML = filteredProducts.map(product => `
             <div class="product-card" data-id="${product.id}">
                 ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
@@ -293,11 +319,63 @@ class BrinahllyBeauty {
             </div>
         `).join('');
 
-        // Re-add event listeners
         this.reattachProductEventListeners();
-        
         this.scrollToSection('produtos');
-        this.showNotification(`Mostrando produtos da categoria: ${category}`, 'success');
+        this.showNotification(`Mostrando produtos da categoria: ${this.getCategoryName(category)}`, 'success');
+    }
+
+    handleSearch(searchTerm) {
+        const filteredProducts = this.products.filter(product => 
+            product.name.toLowerCase().includes(searchTerm) ||
+            product.description.toLowerCase().includes(searchTerm)
+        );
+
+        const productsGrid = document.getElementById('productsGrid');
+        if (!productsGrid) return;
+
+        if (filteredProducts.length === 0) {
+            productsGrid.innerHTML = `
+                <div class="no-results">
+                    <h3>Nenhum produto encontrado</h3>
+                    <p>Tente buscar com outros termos</p>
+                </div>
+            `;
+            return;
+        }
+
+        productsGrid.innerHTML = filteredProducts.map(product => `
+            <div class="product-card" data-id="${product.id}">
+                ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
+                <div class="product-image">
+                    ${product.icon}
+                </div>
+                <div class="product-info">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <div class="product-price">
+                        <span class="current-price">R$ ${product.price.toFixed(2)}</span>
+                        ${product.oldPrice ? `<span class="old-price">R$ ${product.oldPrice.toFixed(2)}</span>` : ''}
+                        <span class="installment">ou 3x de R$ ${(product.price / 3).toFixed(2)}</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn-comprar" data-id="${product.id}">Comprar Agora</button>
+                        <button class="btn-add-cart" data-id="${product.id}">Adicionar à Sacola</button>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        this.reattachProductEventListeners();
+    }
+
+    getCategoryName(category) {
+        const categories = {
+            'body-splash': 'Body Splash',
+            'perfumes': 'Perfumes',
+            'kits': 'Kits Presente',
+            'lancamentos': 'Lançamentos'
+        };
+        return categories[category] || category;
     }
 
     reattachProductEventListeners() {
@@ -344,6 +422,24 @@ class BrinahllyBeauty {
         this.showNotification('Produto removido do carrinho', 'success');
     }
 
+    updateQuantity(productId, action) {
+        const item = this.cart.find(item => item.id === productId);
+        if (!item) return;
+
+        if (action === 'increase') {
+            item.quantity += 1;
+        } else if (action === 'decrease') {
+            item.quantity -= 1;
+            if (item.quantity <= 0) {
+                this.removeFromCart(productId);
+                return;
+            }
+        }
+
+        this.saveCart();
+        this.updateCartDisplay();
+    }
+
     updateCartDisplay() {
         const cartCount = document.querySelector('.cart-count');
         const cartItems = document.getElementById('cartItems');
@@ -353,7 +449,7 @@ class BrinahllyBeauty {
 
         // Update cart count
         const totalItems = this.cart.reduce((sum, item) => sum + item.quantity, 0);
-        cartCount.textContent = totalItems;
+        if (cartCount) cartCount.textContent = totalItems;
 
         // Update cart total
         const total = this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
@@ -426,24 +522,6 @@ class BrinahllyBeauty {
         }
     }
 
-    updateQuantity(productId, action) {
-        const item = this.cart.find(item => item.id === productId);
-        if (!item) return;
-
-        if (action === 'increase') {
-            item.quantity += 1;
-        } else if (action === 'decrease') {
-            item.quantity -= 1;
-            if (item.quantity <= 0) {
-                this.removeFromCart(productId);
-                return;
-            }
-        }
-
-        this.saveCart();
-        this.updateCartDisplay();
-    }
-
     saveCart() {
         localStorage.setItem('brinahllyCart', JSON.stringify(this.cart));
     }
@@ -452,6 +530,11 @@ class BrinahllyBeauty {
     handleLogin() {
         const email = document.getElementById('loginEmail').value;
         const password = document.getElementById('loginPassword').value;
+
+        if (!email || !password) {
+            this.showNotification('Preencha todos os campos', 'error');
+            return;
+        }
 
         const user = this.users.find(u => u.email === email && u.password === password);
         
@@ -472,6 +555,11 @@ class BrinahllyBeauty {
         const password = document.getElementById('registerPassword').value;
         const confirmPassword = document.getElementById('registerConfirmPassword').value;
         const phone = document.getElementById('registerPhone').value;
+
+        if (!name || !email || !password || !confirmPassword || !phone) {
+            this.showNotification('Preencha todos os campos', 'error');
+            return;
+        }
 
         if (password !== confirmPassword) {
             this.showNotification('As senhas não coincidem', 'error');
@@ -532,7 +620,7 @@ class BrinahllyBeauty {
                 `;
 
                 // Re-add event listeners
-                document.getElementById('logout-link').addEventListener('click', (e) => {
+                document.getElementById('logout-link')?.addEventListener('click', (e) => {
                     e.preventDefault();
                     this.handleLogout();
                 });
@@ -548,6 +636,17 @@ class BrinahllyBeauty {
                     <a href="#" id="minhas-compras-link">Minhas Compras</a>
                     <a href="#" id="favoritos-link">Meus Favoritos</a>
                 `;
+
+                // Re-add event listeners
+                document.getElementById('login-link')?.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.showModal('loginModal');
+                });
+
+                document.getElementById('cadastro-link')?.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.showModal('registerModal');
+                });
             }
         }
     }
@@ -607,8 +706,7 @@ class BrinahllyBeauty {
         if (userOrders.length === 0) {
             this.showNotification('Você ainda não realizou nenhuma compra', 'warning');
         } else {
-            this.showNotification(`Você tem ${userOrders.length} pedido(s)`, 'success');
-            // Aqui você pode implementar um modal para mostrar os pedidos detalhados
+            this.showNotification(`Você tem ${userOrders.length} pedido(s) realizados!`, 'success');
         }
     }
 
@@ -642,18 +740,29 @@ class BrinahllyBeauty {
     // Newsletter
     handleNewsletter() {
         const email = document.getElementById('newsletterEmail').value;
+        if (!email) {
+            this.showNotification('Digite seu e-mail', 'warning');
+            return;
+        }
+
         this.showNotification(`Obrigada por se cadastrar! Enviaremos novidades para: ${email}`, 'success');
         document.getElementById('newsletterForm').reset();
     }
 
     // Utility Methods
     showModal(modalId) {
-        document.getElementById(modalId).style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
     }
 
     hideModal(modalId) {
-        document.getElementById(modalId).style.display = 'none';
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = 'none';
+        }
     }
 
     hideAllModals() {
@@ -664,7 +773,14 @@ class BrinahllyBeauty {
     }
 
     showNotification(message, type = 'success') {
-        const notification = document.getElementById('notification');
+        // Create notification element if it doesn't exist
+        let notification = document.getElementById('notification');
+        if (!notification) {
+            notification = document.createElement('div');
+            notification.id = 'notification';
+            document.body.appendChild(notification);
+        }
+
         notification.textContent = message;
         notification.className = `notification ${type}`;
         notification.style.display = 'flex';
@@ -682,31 +798,59 @@ class BrinahllyBeauty {
     }
 }
 
-// Search functionality
-document.getElementById('searchInput').addEventListener('input', (e) => {
-    const searchTerm = e.target.value.toLowerCase();
-    if (searchTerm.length > 2) {
-        // Implementar busca em tempo real se necessário
-        console.log('Buscando:', searchTerm);
-    }
-});
-
-// Initialize the application
+// Initialize the application when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    // Add CSS for notifications if not present
+    if (!document.querySelector('#notification-styles')) {
+        const style = document.createElement('style');
+        style.id = 'notification-styles';
+        style.textContent = `
+            .notification {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px 25px;
+                border-radius: 5px;
+                z-index: 3000;
+                animation: slideIn 0.3s ease;
+                display: none;
+                align-items: center;
+                gap: 10px;
+                max-width: 300px;
+                font-weight: 500;
+            }
+            .notification.success {
+                background: #28a745;
+                color: white;
+            }
+            .notification.error {
+                background: #dc3545;
+                color: white;
+            }
+            .notification.warning {
+                background: #ffc107;
+                color: #333;
+            }
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            .no-results {
+                grid-column: 1 / -1;
+                text-align: center;
+                padding: 40px;
+                color: #666;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
     window.brinahllyApp = new BrinahllyBeauty();
     console.log('Brinahlly Beauty - Site totalmente funcional! 🚀');
-});
-
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
 });
