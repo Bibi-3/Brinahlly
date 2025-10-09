@@ -74,6 +74,12 @@ body {
     padding: 15px 0;
 }
 
+.logo-image {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 .logo-placeholder {
     width: 60px;
     height: 60px;
