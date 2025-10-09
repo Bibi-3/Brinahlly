@@ -19,7 +19,7 @@ class BrinahllyBeauty {
                 oldPrice: 59.90,
                 category: "body-splash",
                 badge: "MAIS VENDIDO",
-                icon: "🌸"
+                icon: <img src="image copy 2.png" alt="Flor de Cerejeira"></img>
             },
             {
                 id: 2,
