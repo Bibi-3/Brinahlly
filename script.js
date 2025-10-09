@@ -40,22 +40,6 @@ class BrinahllyBeauty {
                 icon: "🍦"
             },
             {
-                id: 4,
-                name: "Lavanda Serena",
-                description: "Acalmante e relaxante, com essência pura de lavanda francesa",
-                price: 47.90,
-                category: "body-splash",
-                icon: "💜"
-            },
-            {
-                id: 5,
-                name: "Jasmin da Noite",
-                description: "Fragrância intensa e sensual com notas de jasmim e musk",
-                price: 56.90,
-                category: "perfumes",
-                icon: "🌙"
-            },
-            {
                 id: 6,
                 name: "Citrus Fresh",
                 description: "Energizante com notas cítricas de limão siciliano e bergamota",
