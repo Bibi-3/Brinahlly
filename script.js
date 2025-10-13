@@ -15,7 +15,7 @@ class BrinahllyBeauty {
                 id: 1,
                 name: "Flor de Cerejeira",
                 description: "Fragrância suave e floral com notas de cerejeira e jasmim",
-                price: 49.90,
+                price: 44,95,
                 oldPrice: 59.90,
                 category: "body-splash",
                 badge: "MAIS VENDIDO",
@@ -25,27 +25,27 @@ class BrinahllyBeauty {
                 id: 2,
                 name: "Brisa Tropical",
                 description: "Notas refrescantes de coco e abacaxi com um toque exótico",
-                price: 54.90,
+                price: 44,95,
                 category: "body-splash",
                 badge: "LANÇAMENTO",
-                image: "https://via.placeholder.com/300x300/87CEEB/FFFFFF?text=Brisa+Tropical"
+                image: "image copy 3.png"
             },
             {
                 id: 3,
                 name: "Vanilla Dream",
                 description: "Doce e aconchegante, com notas cremosas de baunilha e âmbar",
-                price: 52.90,
+                price: 44,95,
                 oldPrice: 59.90,
                 category: "body-splash",
-                image: "https://via.placeholder.com/300x300/FFF8DC/333333?text=Vanilla+Dream"
+                image: "image copy.png"
             },
             {
                 id: 4,
                 name: "Lavanda Serena",
                 description: "Acalmante e relaxante, com essência pura de lavanda francesa",
-                price: 47.90,
+                price: 44,95,
                 category: "body-splash",
-                image: "https://via.placeholder.com/300x300/E6E6FA/333333?text=Lavanda+Serena"
+                image: "image.png"
             },
         ];
     }
