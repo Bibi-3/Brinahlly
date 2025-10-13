@@ -19,7 +19,7 @@ class BrinahllyBeauty {
                 oldPrice: 59.90,
                 category: "body-splash",
                 badge: "MAIS VENDIDO",
-                Image: "image copy 2.png"
+                image: "https://via.placeholder.com/300x300/FFB6C1/FFFFFF?text=Flor+de+Cerejeira"
             },
             {
                 id: 2,
@@ -28,7 +28,7 @@ class BrinahllyBeauty {
                 price: 54.90,
                 category: "body-splash",
                 badge: "LANÇAMENTO",
-                icon: "🍍"
+                image: "https://via.placeholder.com/300x300/87CEEB/FFFFFF?text=Brisa+Tropical"
             },
             {
                 id: 3,
@@ -37,7 +37,23 @@ class BrinahllyBeauty {
                 price: 52.90,
                 oldPrice: 59.90,
                 category: "body-splash",
-                icon: "🍦"
+                image: "https://via.placeholder.com/300x300/FFF8DC/333333?text=Vanilla+Dream"
+            },
+            {
+                id: 4,
+                name: "Lavanda Serena",
+                description: "Acalmante e relaxante, com essência pura de lavanda francesa",
+                price: 47.90,
+                category: "body-splash",
+                image: "https://via.placeholder.com/300x300/E6E6FA/333333?text=Lavanda+Serena"
+            },
+            {
+                id: 5,
+                name: "Jasmin da Noite",
+                description: "Fragrância intensa e sensual com notas de jasmim e musk",
+                price: 56.90,
+                category: "perfumes",
+                image: "https://via.placeholder.com/300x300/4B0082/FFFFFF?text=Jasmin+Noite"
             },
             {
                 id: 6,
@@ -45,7 +61,23 @@ class BrinahllyBeauty {
                 description: "Energizante com notas cítricas de limão siciliano e bergamota",
                 price: 48.90,
                 category: "body-splash",
-                icon: "🍋"
+                image: "https://via.placeholder.com/300x300/32CD32/FFFFFF?text=Citrus+Fresh"
+            },
+            {
+                id: 7,
+                name: "Romance de Rosas",
+                description: "Fragrância romântica com essência pura de rosas bulbares",
+                price: 51.90,
+                category: "body-splash",
+                image: "https://via.placeholder.com/300x300/FF69B4/FFFFFF?text=Romance+Rosas"
+            },
+            {
+                id: 8,
+                name: "Ambar Mystique",
+                description: "Notas amadeiradas e quentes com toque de âmbar e baunilha",
+                price: 58.90,
+                category: "perfumes",
+                image: "https://via.placeholder.com/300x300/8B4513/FFFFFF?text=Ambar+Mystique"
             }
         ];
     }
@@ -252,7 +284,7 @@ class BrinahllyBeauty {
             <div class="product-card" data-id="${product.id}">
                 ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
                 <div class="product-image">
-                    ${product.icon}
+                    <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x300/B695c0/FFFFFF?text=Produto'">
                 </div>
                 <div class="product-info">
                     <h3>${product.name}</h3>
@@ -285,7 +317,7 @@ class BrinahllyBeauty {
             <div class="product-card" data-id="${product.id}">
                 ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
                 <div class="product-image">
-                    ${product.icon}
+                    <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x300/B695c0/FFFFFF?text=Produto'">
                 </div>
                 <div class="product-info">
                     <h3>${product.name}</h3>
@@ -331,7 +363,7 @@ class BrinahllyBeauty {
             <div class="product-card" data-id="${product.id}">
                 ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
                 <div class="product-image">
-                    ${product.icon}
+                    <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x300/B695c0/FFFFFF?text=Produto'">
                 </div>
                 <div class="product-info">
                     <h3>${product.name}</h3>
@@ -447,7 +479,7 @@ class BrinahllyBeauty {
             } else {
                 cartItems.innerHTML = this.cart.map(item => `
                     <div class="cart-item">
-                        <div class="cart-item-image">${item.icon}</div>
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-img">
                         <div class="cart-item-info">
                             <h5>${item.name}</h5>
                             <div class="cart-item-price">R$ ${item.price.toFixed(2)} x ${item.quantity}</div>
@@ -473,7 +505,7 @@ class BrinahllyBeauty {
             } else {
                 cartItemsModal.innerHTML = this.cart.map(item => `
                     <div class="cart-item-modal">
-                        <div class="cart-item-image">${item.icon}</div>
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
                         <div class="cart-item-details">
                             <h4>${item.name}</h4>
                             <div class="cart-item-price">R$ ${item.price.toFixed(2)}</div>
@@ -708,7 +740,7 @@ class BrinahllyBeauty {
             name: "Kit Leve 3 Pague 2",
             description: "Kit especial com 3 fragrâncias mais amadas",
             price: 119.90,
-            icon: "🎁"
+            image: "https://via.placeholder.com/300x300/B695c0/FFFFFF?text=Kit+Especial"
         };
 
         this.cart.push({
@@ -780,14 +812,34 @@ class BrinahllyBeauty {
             element.scrollIntoView({ behavior: 'smooth' });
         }
     }
+
+    // Método para atualizar imagens facilmente
+    updateProductImage(productId, newImageUrl) {
+        const product = this.products.find(p => p.id === productId);
+        if (product) {
+            product.image = newImageUrl;
+            this.loadProducts(); // Recarrega os produtos com a nova imagem
+        }
+    }
+
+    // Método para adicionar novo produto
+    addNewProduct(productData) {
+        const newProduct = {
+            id: Date.now(),
+            ...productData
+        };
+        this.products.push(newProduct);
+        this.loadProducts();
+        this.showNotification('Novo produto adicionado!', 'success');
+    }
 }
 
 // Initialize the application when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    // Add CSS for notifications if not present
-    if (!document.querySelector('#notification-styles')) {
+    // Add CSS for notifications and images if not present
+    if (!document.querySelector('#dynamic-styles')) {
         const style = document.createElement('style');
-        style.id = 'notification-styles';
+        style.id = 'dynamic-styles';
         style.textContent = `
             .notification {
                 position: fixed;
@@ -831,10 +883,45 @@ document.addEventListener('DOMContentLoaded', () => {
                 padding: 40px;
                 color: #666;
             }
+            .product-image img {
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+                border-radius: 8px 8px 0 0;
+            }
+            .cart-item-img {
+                width: 40px;
+                height: 40px;
+                object-fit: cover;
+                border-radius: 5px;
+            }
+            .cart-item-image {
+                width: 60px;
+                height: 60px;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+            .category-card img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-radius: 10px;
+                margin-bottom: 15px;
+            }
         `;
         document.head.appendChild(style);
     }
 
     window.brinahllyApp = new BrinahllyBeauty();
-    console.log('Brinahlly Beauty - Site totalmente funcional! 🚀');
+    console.log('Brinahlly Beauty - Site totalmente funcional com imagens! 🚀');
+
+    // Exemplo de como adicionar imagens reais posteriormente:
+    // window.brinahllyApp.updateProductImage(1, 'images/flor-cerejeira.jpg');
+    // window.brinahllyApp.addNewProduct({
+    //     name: "Novo Body Splash",
+    //     description: "Descrição do novo produto",
+    //     price: 55.90,
+    //     category: "body-splash",
+    //     image: "images/novo-produto.jpg"
+    // });
 });
