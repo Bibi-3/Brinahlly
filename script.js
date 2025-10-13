@@ -19,7 +19,7 @@ class BrinahllyBeauty {
                 oldPrice: 59.90,
                 category: "body-splash",
                 badge: "MAIS VENDIDO",
-                icon: "🌸"
+               <img src="image copy 2.png" alt="Brisa Tropical">
             },
             {
                 id: 2,
