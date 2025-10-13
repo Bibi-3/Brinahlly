@@ -47,38 +47,6 @@ class BrinahllyBeauty {
                 category: "body-splash",
                 image: "https://via.placeholder.com/300x300/E6E6FA/333333?text=Lavanda+Serena"
             },
-            {
-                id: 5,
-                name: "Jasmin da Noite",
-                description: "Fragrância intensa e sensual com notas de jasmim e musk",
-                price: 56.90,
-                category: "perfumes",
-                image: "https://via.placeholder.com/300x300/4B0082/FFFFFF?text=Jasmin+Noite"
-            },
-            {
-                id: 6,
-                name: "Citrus Fresh",
-                description: "Energizante com notas cítricas de limão siciliano e bergamota",
-                price: 48.90,
-                category: "body-splash",
-                image: "https://via.placeholder.com/300x300/32CD32/FFFFFF?text=Citrus+Fresh"
-            },
-            {
-                id: 7,
-                name: "Romance de Rosas",
-                description: "Fragrância romântica com essência pura de rosas bulbares",
-                price: 51.90,
-                category: "body-splash",
-                image: "https://via.placeholder.com/300x300/FF69B4/FFFFFF?text=Romance+Rosas"
-            },
-            {
-                id: 8,
-                name: "Ambar Mystique",
-                description: "Notas amadeiradas e quentes com toque de âmbar e baunilha",
-                price: 58.90,
-                category: "perfumes",
-                image: "https://via.placeholder.com/300x300/8B4513/FFFFFF?text=Ambar+Mystique"
-            }
         ];
     }
 
