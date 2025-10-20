@@ -20,10 +20,10 @@
     --lilas: #b788e4;
 }
 
-body {
+.body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: var(--black);
+    color: var(--warning);
     background-color: var(--white);
 }
 
