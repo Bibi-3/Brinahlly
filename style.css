@@ -77,7 +77,7 @@
     display: flex;
     align-items: center;
     gap: 15px;
-    --primary-color: #b788e4; /*nomes e faixa de cima*/
+    --primary-color: #000000; /*nomes e faixa de cima*/
 }
 
 .logo-placeholder {
