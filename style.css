@@ -9,6 +9,7 @@
     --primary-color: #a76fdb; /*geral*/
     --primary-dark: #b788e46c; /*geral 2*/
     --white: #ffffff;
+    --primary-color: #b788e4; /*nomes e faixa de cima*/
     --gray-light: #b788e46c;
     --gray: #b788e4; /*lupinha e slogan*/
     --gray-dark: #b788e4;
@@ -77,7 +78,6 @@
     display: flex;
     align-items: center;
     gap: 15px;
-    --primary-color: #000000; /*nomes e faixa de cima*/
 }
 
 .logo-placeholder {
