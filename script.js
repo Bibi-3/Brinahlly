@@ -32,7 +32,7 @@ class BrinahllyBeauty {
             },
             {
                 id: 3,
-                name: "Vanilla Dream",
+                name: "Serena",
                 description: "Doce e aconchegante, com notas cremosas de baunilha e âmbar",
                 price: 44.95,
                 oldPrice: 59.90,
@@ -41,8 +41,8 @@ class BrinahllyBeauty {
             },
             {
                 id: 4,
-                name: "Lavanda Serena",
-                description: "Acalmante e relaxante, com essência pura de lavanda francesa",
+                name: "Vanilla Blossom",
+                description: "Doce e aconchegante, com notas cremosas de baunilha e âmbar",
                 price: 44.95,
                 category: "body-splash",
                 image: "image.png"
