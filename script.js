@@ -33,7 +33,7 @@ class BrinahllyBeauty {
             {
                 id: 3,
                 name: "Serena",
-                description: "Doce e aconchegante, com notas cremosas de baunilha e âmbar",
+                description: "Uma essência encantada",
                 price: 44.95,
                 oldPrice: 59.90,
                 category: "body-splash",
