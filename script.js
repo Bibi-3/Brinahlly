@@ -14,7 +14,7 @@ class BrinahllyBeauty {
             {
                 id: 1,
                 name: "Lily Encantado",
-                description: "Fragrância suave e floral com notas de cerejeira e jasmim",
+                description: "Romantico e Ousado",
                 price: 44.95,
                 oldPrice: 59.90,
                 category: "body-splash",
@@ -24,7 +24,7 @@ class BrinahllyBeauty {
             {
                 id: 2,
                 name: "Intenso",
-                description: "Notas refrescantes de coco e abacaxi com um toque exótico",
+                description: "Fragancia amadeirada e sofisticada",
                 price: 44.95,
                 category: "body-splash",
                 badge: "LANÇAMENTO",
