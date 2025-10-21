@@ -13,7 +13,7 @@ class BrinahllyBeauty {
         return [
             {
                 id: 1,
-                name: "Flor de Cerejeira",
+                name: "Lily Encantado",
                 description: "Fragrância suave e floral com notas de cerejeira e jasmim",
                 price: 44.95,
                 oldPrice: 59.90,
@@ -23,7 +23,7 @@ class BrinahllyBeauty {
             },
             {
                 id: 2,
-                name: "Brisa Tropical",
+                name: "Intenso",
                 description: "Notas refrescantes de coco e abacaxi com um toque exótico",
                 price: 44.95,
                 category: "body-splash",
