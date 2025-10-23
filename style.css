@@ -517,13 +517,6 @@
     padding: 75px 0;
 }
 
-.img-responsiva {
-  width: 100%; /* ocupa toda a largura do elemento pai */
-  height: auto; /* ajusta a altura automaticamente */
-  max-width: 100%; /* impede que ultrapasse o tamanho original */
-  display: block; /* remove espaçamento indesejado */
-}
-
 .offer-banner {
     background: linear-gradient(135deg, var(--lilas) 0%, #b788e4 100%);
     border-radius: 20px;
