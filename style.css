@@ -35,7 +35,7 @@
 
 /* Top Bar */
 .top-bar {
-    background: var(--gray);
+    background: var(--gray-light);
     color: var(--white);
     padding: 10px 0;
     font-size: 14px;
