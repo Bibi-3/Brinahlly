@@ -35,8 +35,8 @@
 
 /* Top Bar */
 .top-bar {
-    background: var(--black);
-    color: var(--gray-dark);
+    background: var(--gray);
+    color: var(--white);
     padding: 10px 0;
     font-size: 14px;
 }
