@@ -708,7 +708,7 @@ class BrinahllyBeauty {
             name: "Kit Leve 3 Pague 2",
             description: "Kit especial com 3 fragrâncias mais amadas",
             price: 119.90,
-            image: "https://via.placeholder.com/300x300/B695c0/FFFFFF?text=Kit+Especial"
+            image: "LEVE 2 FRAGRÂNCIAS.png"
         };
 
         this.cart.push({
