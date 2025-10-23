@@ -526,7 +526,7 @@
 
 .offer-content {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: space-between;
     min-height: 300px;
     padding: 0 40px;
