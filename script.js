@@ -6,7 +6,6 @@ class BrinahllyBeauty {
         this.products = this.initializeProducts();
         this.cart = JSON.parse(localStorage.getItem('brinahllyCart')) || [];
         this.orders = JSON.parse(localStorage.getItem('brinahllyOrders')) || [];
-        this.currentProduct = null;
         this.init();
     }
 
@@ -14,89 +13,40 @@ class BrinahllyBeauty {
         return [
             {
                 id: 1,
-                name: "Flor de Cerejeira",
-                description: "Fragrância suave e floral com notas de cerejeira e jasmim. Perfeita para o dia a dia, trazendo uma sensação de frescor e delicadeza.",
-                longDescription: "O Body Splash Flor de Cerejeira é uma fragrância encantadora que combina notas suaves de cerejeira com o aroma floral do jasmim. Ideal para quem busca uma fragrância leve e romântica. Sua fórmula hidratante mantém a pele macia e perfumada por horas.",
-                price: 49.90,
+                name: "Lily Encantado",
+                description: "Romantico e Ousado",
+                price: 44.95,
                 oldPrice: 59.90,
                 category: "body-splash",
                 badge: "MAIS VENDIDO",
-                image: "https://via.placeholder.com/500x500/FFB6C1/FFFFFF?text=Flor+de+Cerejeira",
-                images: [
-                    "https://via.placeholder.com/500x500/FFB6C1/FFFFFF?text=Flor+de+Cerejeira+1",
-                    "https://via.placeholder.com/500x500/FFB6C1/FFFFFF?text=Flor+de+Cerejeira+2",
-                    "https://via.placeholder.com/500x500/FFB6C1/FFFFFF?text=Flor+de+Cerejeira+3"
-                ],
-                features: [
-                    "Duração de até 8 horas",
-                    "Hidratação intensa",
-                    "Fragrância suave e duradoura",
-                    "Sem álcool na fórmula"
-                ],
-                volume: "200ml"
+                image: "image copy 2.png"
             },
             {
                 id: 2,
-                name: "Brisa Tropical",
-                description: "Notas refrescantes de coco e abacaxi com um toque exótico",
-                longDescription: "Transporte-se para um paraíso tropical com o Body Splash Brisa Tropical. Combina a doçura do coco com a frescura do abacaxi, criando uma fragrância vibrante e energizante.",
-                price: 54.90,
+                name: "Intenso",
+                description: "Fragancia amadeirada e sofisticada",
+                price: 44.95,
                 category: "body-splash",
                 badge: "LANÇAMENTO",
-                image: "https://via.placeholder.com/500x500/87CEEB/FFFFFF?text=Brisa+Tropical",
-                images: [
-                    "https://via.placeholder.com/500x500/87CEEB/FFFFFF?text=Brisa+Tropical+1",
-                    "https://via.placeholder.com/500x500/87CEEB/FFFFFF?text=Brisa+Tropical+2"
-                ],
-                features: [
-                    "Aroma tropical revitalizante",
-                    "Hidratação com óleo de coco",
-                    "Perfeito para o verão",
-                    "Fórmula refrescante"
-                ],
-                volume: "200ml"
+                image: "image copy 3.png"
             },
             {
                 id: 3,
-                name: "Vanilla Dream",
-                description: "Doce e aconchegante, com notas cremosas de baunilha e âmbar",
-                longDescription: "Uma fragrância aconchegante que lembra doces caseiros. O Vanilla Dream combina notas cremosas de baunilha com um toque sensual de âmbar, criando uma experiência olfativa única.",
-                price: 52.90,
+                name: "Serena",
+                description: "Uma essência encantada",
+                price: 44.95,
                 oldPrice: 59.90,
                 category: "body-splash",
-                image: "https://via.placeholder.com/500x500/FFF8DC/333333?text=Vanilla+Dream",
-                images: [
-                    "https://via.placeholder.com/500x500/FFF8DC/333333?text=Vanilla+Dream+1",
-                    "https://via.placeholder.com/500x500/FFF8DC/333333?text=Vanilla+Dream+2"
-                ],
-                features: [
-                    "Aroma doce e aconchegante",
-                    "Hidratação 24h",
-                    "Notas de baunilha natural",
-                    "Perfeito para noites"
-                ],
-                volume: "200ml"
+                image: "image copy.png"
             },
             {
                 id: 4,
-                name: "Lavanda Serena",
-                description: "Acalmante e relaxante, com essência pura de lavanda francesa",
-                longDescription: "Relaxe e renove suas energias com o Body Splash Lavanda Serena. Formulado com essência pura de lavanda francesa, promove relaxamento e bem-estar enquanto hidrata sua pele.",
-                price: 47.90,
+                name: "Vanilla Blossom",
+                description: "Doce e aconchegante, com notas cremosas de baunilha e âmbar",
+                price: 44.95,
                 category: "body-splash",
-                image: "https://via.placeholder.com/500x500/E6E6FA/333333?text=Lavanda+Serena",
-                images: [
-                    "https://via.placeholder.com/500x500/E6E6FA/333333?text=Lavanda+Serena+1",
-                    "https://via.placeholder.com/500x500/E6E6FA/333333?text=Lavanda+Serena+2"
-                ],
-                features: [
-                    "Propriedades relaxantes",
-                    "Auxilia no sono tranquilo",
-                    "Hidratação profunda",
-                    "Aroma terapêutico"
-                ],
-                volume: "200ml"
-            }
+                image: "image.png"
+            },
         ];
     }
 
@@ -107,16 +57,6 @@ class BrinahllyBeauty {
         this.updateUserInterface();
         this.setupMobileMenu();
         this.setupSmoothScroll();
-        this.checkProductPage();
-    }
-
-    checkProductPage() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const productId = urlParams.get('product');
-        
-        if (productId) {
-            this.showProductPage(parseInt(productId));
-        }
     }
 
     setupEventListeners() {
@@ -243,12 +183,7 @@ class BrinahllyBeauty {
         });
 
         document.getElementById('checkoutBtn')?.addEventListener('click', () => {
-            this.showPaymentOptions();
-        });
-
-        // Payment handlers
-        document.getElementById('confirmPayment')?.addEventListener('click', () => {
-            this.processPayment();
+            this.handleCheckout();
         });
     }
 
@@ -316,7 +251,7 @@ class BrinahllyBeauty {
         productsGrid.innerHTML = this.products.map(product => `
             <div class="product-card" data-id="${product.id}">
                 ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
-                <div class="product-image" data-id="${product.id}">
+                <div class="product-image">
                     <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x300/B695c0/FFFFFF?text=Produto'">
                 </div>
                 <div class="product-info">
@@ -330,196 +265,12 @@ class BrinahllyBeauty {
                     <div class="product-actions">
                         <button class="btn-comprar" data-id="${product.id}">Comprar Agora</button>
                         <button class="btn-add-cart" data-id="${product.id}">Adicionar à Sacola</button>
-                        <button class="btn-details" data-id="${product.id}">Ver Detalhes</button>
                     </div>
                 </div>
             </div>
         `).join('');
 
         this.reattachProductEventListeners();
-    }
-
-    reattachProductEventListeners() {
-        // Botões de compra
-        document.querySelectorAll('.btn-comprar').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const productId = parseInt(e.target.dataset.id);
-                this.handleBuyNow(productId);
-            });
-        });
-
-        // Botões de adicionar ao carrinho
-        document.querySelectorAll('.btn-add-cart').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const productId = parseInt(e.target.dataset.id);
-                this.addToCart(productId);
-            });
-        });
-
-        // Botões de ver detalhes
-        document.querySelectorAll('.btn-details').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const productId = parseInt(e.target.dataset.id);
-                this.showProductDetails(productId);
-            });
-        });
-
-        // Clicar na imagem do produto
-        document.querySelectorAll('.product-image').forEach(image => {
-            image.addEventListener('click', (e) => {
-                const productId = parseInt(e.currentTarget.dataset.id);
-                this.showProductDetails(productId);
-            });
-        });
-    }
-
-    showProductDetails(productId) {
-        // Redireciona para a página do produto
-        window.location.href = `?product=${productId}`;
-    }
-
-    showProductPage(productId) {
-        const product = this.products.find(p => p.id === productId);
-        if (!product) {
-            window.location.href = '/';
-            return;
-        }
-
-        this.currentProduct = product;
-        
-        // Esconde o conteúdo principal e mostra a página do produto
-        document.querySelector('main').style.display = 'none';
-        document.querySelector('.offers-section').style.display = 'none';
-        document.querySelector('.newsletter-section').style.display = 'none';
-        
-        this.createProductPage(product);
-    }
-
-    createProductPage(product) {
-        const productPageHTML = `
-            <section class="product-detail-section">
-                <div class="container">
-                    <nav class="breadcrumb">
-                        <a href="/">Home</a> > 
-                        <a href="#produtos">Body Splash</a> > 
-                        <span>${product.name}</span>
-                    </nav>
-                    
-                    <div class="product-detail">
-                        <div class="product-gallery">
-                            <div class="main-image">
-                                <img src="${product.image}" alt="${product.name}" id="mainProductImage">
-                            </div>
-                            <div class="image-thumbnails">
-                                ${product.images.map((img, index) => `
-                                    <img src="${img}" alt="${product.name} ${index + 1}" 
-                                         class="thumbnail ${index === 0 ? 'active' : ''}"
-                                         data-image="${img}">
-                                `).join('')}
-                            </div>
-                        </div>
-                        
-                        <div class="product-info-detail">
-                            <h1>${product.name}</h1>
-                            <div class="product-rating">
-                                ⭐⭐⭐⭐⭐ (4.8)
-                            </div>
-                            <p class="product-description">${product.longDescription}</p>
-                            
-                            <div class="product-features">
-                                <h3>Características:</h3>
-                                <ul>
-                                    ${product.features.map(feature => `<li>✓ ${feature}</li>`).join('')}
-                                </ul>
-                            </div>
-                            
-                            <div class="product-volume">
-                                <strong>Volume:</strong> ${product.volume}
-                            </div>
-                            
-                            <div class="product-price-detail">
-                                <span class="current-price">R$ ${product.price.toFixed(2)}</span>
-                                ${product.oldPrice ? `<span class="old-price">R$ ${product.oldPrice.toFixed(2)}</span>` : ''}
-                                <div class="installment">ou 3x de R$ ${(product.price / 3).toFixed(2)} sem juros</div>
-                                <div class="pix-discount">5% de desconto no PIX: R$ ${(product.price * 0.95).toFixed(2)}</div>
-                            </div>
-                            
-                            <div class="product-actions-detail">
-                                <div class="quantity-selector">
-                                    <label>Quantidade:</label>
-                                    <div class="quantity-controls">
-                                        <button class="quantity-btn" data-action="decrease">-</button>
-                                        <input type="number" value="1" min="1" max="10" id="productQuantity">
-                                        <button class="quantity-btn" data-action="increase">+</button>
-                                    </div>
-                                </div>
-                                
-                                <button class="btn-comprar-detail" id="buyNowDetail">Comprar Agora</button>
-                                <button class="btn-add-cart-detail" id="addToCartDetail">Adicionar ao Carrinho</button>
-                            </div>
-                            
-                            <div class="product-shipping">
-                                <p>🚚 Frete grátis para compras acima de R$ 99</p>
-                                <p>📦 Entrega em até 5 dias úteis</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="back-to-products">
-                        <button class="btn-back" id="backToProducts">← Voltar para Produtos</button>
-                    </div>
-                </div>
-            </section>
-        `;
-
-        // Insere a página do produto antes do footer
-        const footer = document.querySelector('footer');
-        footer.insertAdjacentHTML('beforebegin', productPageHTML);
-
-        // Adiciona event listeners para a página do produto
-        this.setupProductPageEvents(product);
-    }
-
-    setupProductPageEvents(product) {
-        // Thumbnails
-        document.querySelectorAll('.thumbnail').forEach(thumb => {
-            thumb.addEventListener('click', () => {
-                document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
-                thumb.classList.add('active');
-                document.getElementById('mainProductImage').src = thumb.dataset.image;
-            });
-        });
-
-        // Controles de quantidade
-        document.querySelectorAll('.quantity-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const input = document.getElementById('productQuantity');
-                let value = parseInt(input.value);
-                
-                if (btn.dataset.action === 'increase' && value < 10) {
-                    input.value = value + 1;
-                } else if (btn.dataset.action === 'decrease' && value > 1) {
-                    input.value = value - 1;
-                }
-            });
-        });
-
-        // Botão comprar agora
-        document.getElementById('buyNowDetail').addEventListener('click', () => {
-            const quantity = parseInt(document.getElementById('productQuantity').value);
-            this.handleBuyNow(product.id, quantity);
-        });
-
-        // Botão adicionar ao carrinho
-        document.getElementById('addToCartDetail').addEventListener('click', () => {
-            const quantity = parseInt(document.getElementById('productQuantity').value);
-            this.addToCart(product.id, quantity);
-        });
-
-        // Botão voltar
-        document.getElementById('backToProducts').addEventListener('click', () => {
-            window.location.href = '/';
-        });
     }
 
     filterProductsByCategory(category) {
@@ -533,7 +284,7 @@ class BrinahllyBeauty {
         productsGrid.innerHTML = filteredProducts.map(product => `
             <div class="product-card" data-id="${product.id}">
                 ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
-                <div class="product-image" data-id="${product.id}">
+                <div class="product-image">
                     <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x300/B695c0/FFFFFF?text=Produto'">
                 </div>
                 <div class="product-info">
@@ -547,7 +298,6 @@ class BrinahllyBeauty {
                     <div class="product-actions">
                         <button class="btn-comprar" data-id="${product.id}">Comprar Agora</button>
                         <button class="btn-add-cart" data-id="${product.id}">Adicionar à Sacola</button>
-                        <button class="btn-details" data-id="${product.id}">Ver Detalhes</button>
                     </div>
                 </div>
             </div>
@@ -580,7 +330,7 @@ class BrinahllyBeauty {
         productsGrid.innerHTML = filteredProducts.map(product => `
             <div class="product-card" data-id="${product.id}">
                 ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
-                <div class="product-image" data-id="${product.id}">
+                <div class="product-image">
                     <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x300/B695c0/FFFFFF?text=Produto'">
                 </div>
                 <div class="product-info">
@@ -594,7 +344,6 @@ class BrinahllyBeauty {
                     <div class="product-actions">
                         <button class="btn-comprar" data-id="${product.id}">Comprar Agora</button>
                         <button class="btn-add-cart" data-id="${product.id}">Adicionar à Sacola</button>
-                        <button class="btn-details" data-id="${product.id}">Ver Detalhes</button>
                     </div>
                 </div>
             </div>
@@ -613,19 +362,35 @@ class BrinahllyBeauty {
         return categories[category] || category;
     }
 
+    reattachProductEventListeners() {
+        document.querySelectorAll('.btn-comprar').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const productId = parseInt(e.target.dataset.id);
+                this.handleBuyNow(productId);
+            });
+        });
+
+        document.querySelectorAll('.btn-add-cart').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const productId = parseInt(e.target.dataset.id);
+                this.addToCart(productId);
+            });
+        });
+    }
+
     // Cart Management
-    addToCart(productId, quantity = 1) {
+    addToCart(productId) {
         const product = this.products.find(p => p.id === productId);
         if (!product) return;
 
         const existingItem = this.cart.find(item => item.id === productId);
         
         if (existingItem) {
-            existingItem.quantity += quantity;
+            existingItem.quantity += 1;
         } else {
             this.cart.push({
                 ...product,
-                quantity: quantity
+                quantity: 1
             });
         }
 
@@ -871,7 +636,7 @@ class BrinahllyBeauty {
     }
 
     // Order Management
-    handleBuyNow(productId, quantity = 1) {
+    handleBuyNow(productId) {
         const product = this.products.find(p => p.id === productId);
         if (!product) return;
 
@@ -882,11 +647,11 @@ class BrinahllyBeauty {
         }
 
         // Add to cart and checkout immediately
-        this.addToCart(productId, quantity);
-        this.showPaymentOptions();
+        this.addToCart(productId);
+        this.showModal('cartModal');
     }
 
-    showPaymentOptions() {
+    handleCheckout() {
         if (this.cart.length === 0) {
             this.showNotification('Seu carrinho está vazio', 'warning');
             return;
@@ -898,123 +663,11 @@ class BrinahllyBeauty {
             return;
         }
 
-        const total = this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        const pixDiscount = total * 0.95;
-
-        const paymentModal = document.getElementById('paymentModal') || this.createPaymentModal();
-        
-        document.getElementById('paymentTotal').textContent = total.toFixed(2);
-        document.getElementById('pixTotal').textContent = pixDiscount.toFixed(2);
-        document.getElementById('creditTotal').textContent = total.toFixed(2);
-        
-        this.showModal('paymentModal');
-    }
-
-    createPaymentModal() {
-        const paymentHTML = `
-            <div id="paymentModal" class="modal">
-                <div class="modal-content large">
-                    <span class="close-modal">&times;</span>
-                    <h2>Finalizar Compra</h2>
-                    
-                    <div class="payment-container">
-                        <div class="order-summary">
-                            <h3>Resumo do Pedido</h3>
-                            <div class="order-items">
-                                ${this.cart.map(item => `
-                                    <div class="order-item">
-                                        <img src="${item.image}" alt="${item.name}">
-                                        <div class="item-details">
-                                            <h4>${item.name}</h4>
-                                            <p>Quantidade: ${item.quantity}</p>
-                                            <p>R$ ${(item.price * item.quantity).toFixed(2)}</p>
-                                        </div>
-                                    </div>
-                                `).join('')}
-                            </div>
-                            <div class="order-total-payment">
-                                <strong>Total: R$ <span id="paymentTotal">0,00</span></strong>
-                            </div>
-                        </div>
-                        
-                        <div class="payment-methods">
-                            <h3>Método de Pagamento</h3>
-                            
-                            <div class="payment-option">
-                                <input type="radio" id="pix" name="payment" value="pix" checked>
-                                <label for="pix">
-                                    <div class="payment-icon">📱</div>
-                                    <div class="payment-info">
-                                        <strong>PIX</strong>
-                                        <span>5% de desconto</span>
-                                        <small>Total: R$ <span id="pixTotal">0,00</span></small>
-                                    </div>
-                                </label>
-                            </div>
-                            
-                            <div class="payment-option">
-                                <input type="radio" id="credit" name="payment" value="credit">
-                                <label for="credit">
-                                    <div class="payment-icon">💳</div>
-                                    <div class="payment-info">
-                                        <strong>Cartão de Crédito</strong>
-                                        <span>Até 3x sem juros</span>
-                                        <small>Total: R$ <span id="creditTotal">0,00</span></small>
-                                    </div>
-                                </label>
-                            </div>
-                            
-                            <div class="payment-option">
-                                <input type="radio" id="debit" name="payment" value="debit">
-                                <label for="debit">
-                                    <div class="payment-icon">💳</div>
-                                    <div class="payment-info">
-                                        <strong>Cartão de Débito</strong>
-                                        <span>1x no débito</span>
-                                        <small>Total: R$ <span id="debitTotal">0,00</span></small>
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <div class="payment-actions">
-                            <button class="btn-primary" id="confirmPayment">Confirmar Pagamento</button>
-                            <button class="btn-secondary" id="continueShopping">Continuar Comprando</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-
-        document.body.insertAdjacentHTML('beforeend', paymentHTML);
-
-        // Add event listeners
-        document.getElementById('confirmPayment').addEventListener('click', () => {
-            this.processPayment();
-        });
-
-        document.getElementById('continueShopping').addEventListener('click', () => {
-            this.hideModal('paymentModal');
-        });
-
-        return document.getElementById('paymentModal');
-    }
-
-    processPayment() {
-        const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
-        const total = this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        let finalTotal = total;
-
-        if (selectedPayment === 'pix') {
-            finalTotal = total * 0.95;
-        }
-
         const order = {
             id: Date.now(),
             userId: this.currentUser.id,
             products: [...this.cart],
-            total: finalTotal,
-            paymentMethod: selectedPayment,
+            total: this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
             date: new Date().toISOString(),
             status: 'processing'
         };
@@ -1027,55 +680,8 @@ class BrinahllyBeauty {
         this.saveCart();
         this.updateCartDisplay();
 
-        this.hideModal('paymentModal');
-        this.showNotification(`Compra realizada com sucesso! Método: ${this.getPaymentMethodName(selectedPayment)}`, 'success');
-        
-        // Mostra confirmação
-        setTimeout(() => {
-            this.showOrderConfirmation(order);
-        }, 1000);
-    }
-
-    getPaymentMethodName(method) {
-        const methods = {
-            'pix': 'PIX',
-            'credit': 'Cartão de Crédito',
-            'debit': 'Cartão de Débito'
-        };
-        return methods[method] || method;
-    }
-
-    showOrderConfirmation(order) {
-        const confirmationHTML = `
-            <div id="confirmationModal" class="modal">
-                <div class="modal-content">
-                    <span class="close-modal">&times;</span>
-                    <div class="confirmation-content">
-                        <div class="confirmation-icon">🎉</div>
-                        <h2>Compra Realizada com Sucesso!</h2>
-                        <p>Seu pedido #${order.id} foi confirmado.</p>
-                        <div class="order-details">
-                            <p><strong>Total:</strong> R$ ${order.total.toFixed(2)}</p>
-                            <p><strong>Método:</strong> ${this.getPaymentMethodName(order.paymentMethod)}</p>
-                            <p><strong>Status:</strong> Em processamento</p>
-                        </div>
-                        <button class="btn-primary" id="backToHome">Voltar à Loja</button>
-                    </div>
-                </div>
-            </div>
-        `;
-
-        document.body.insertAdjacentHTML('beforeend', confirmationHTML);
-        this.showModal('confirmationModal');
-
-        document.getElementById('backToHome').addEventListener('click', () => {
-            this.hideModal('confirmationModal');
-            window.location.href = '/';
-        });
-    }
-
-    handleCheckout() {
-        this.showPaymentOptions();
+        this.hideModal('cartModal');
+        this.showNotification('Compra realizada com sucesso! 🎉', 'success');
     }
 
     showUserOrders() {
@@ -1102,7 +708,7 @@ class BrinahllyBeauty {
             name: "Kit Leve 3 Pague 2",
             description: "Kit especial com 3 fragrâncias mais amadas",
             price: 119.90,
-            image: "https://via.placeholder.com/300x300/B695c0/FFFFFF?text=Kit+Especial"
+            image: "LEVE 2 FRAGRÂNCIAS.png"
         };
 
         this.cart.push({
@@ -1174,6 +780,26 @@ class BrinahllyBeauty {
             element.scrollIntoView({ behavior: 'smooth' });
         }
     }
+
+    // Método para atualizar imagens facilmente
+    updateProductImage(productId, newImageUrl) {
+        const product = this.products.find(p => p.id === productId);
+        if (product) {
+            product.image = newImageUrl;
+            this.loadProducts(); // Recarrega os produtos com a nova imagem
+        }
+    }
+
+    // Método para adicionar novo produto
+    addNewProduct(productData) {
+        const newProduct = {
+            id: Date.now(),
+            ...productData
+        };
+        this.products.push(newProduct);
+        this.loadProducts();
+        this.showNotification('Novo produto adicionado!', 'success');
+    }
 }
 
 // Initialize the application when DOM is loaded
@@ -1230,11 +856,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 height: 250px;
                 object-fit: cover;
                 border-radius: 8px 8px 0 0;
-                cursor: pointer;
-                transition: transform 0.3s;
-            }
-            .product-image img:hover {
-                transform: scale(1.05);
             }
             .cart-item-img {
                 width: 40px;
@@ -1255,249 +876,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 border-radius: 10px;
                 margin-bottom: 15px;
             }
-            .btn-details {
-                background: transparent;
-                color: #666;
-                border: 1px solid #ddd;
-                padding: 8px 15px;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: all 0.3s;
-                font-size: 12px;
-                margin-top: 5px;
-            }
-            .btn-details:hover {
-                background: #f5f5f5;
-                border-color: #999;
-            }
-            /* Product Detail Page Styles */
-            .product-detail-section {
-                padding: 40px 0;
-                background: #f8f8f8;
-                min-height: 100vh;
-            }
-            .breadcrumb {
-                margin-bottom: 20px;
-                font-size: 14px;
-                color: #666;
-            }
-            .breadcrumb a {
-                color: #B695c0;
-                text-decoration: none;
-            }
-            .product-detail {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 40px;
-                background: white;
-                padding: 30px;
-                border-radius: 15px;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            }
-            .product-gallery .main-image img {
-                width: 100%;
-                border-radius: 10px;
-            }
-            .image-thumbnails {
-                display: flex;
-                gap: 10px;
-                margin-top: 15px;
-            }
-            .thumbnail {
-                width: 60px;
-                height: 60px;
-                object-fit: cover;
-                border-radius: 5px;
-                cursor: pointer;
-                border: 2px solid transparent;
-            }
-            .thumbnail.active {
-                border-color: #B695c0;
-            }
-            .product-info-detail h1 {
-                color: #333;
-                margin-bottom: 10px;
-            }
-            .product-rating {
-                color: #ffc107;
-                margin-bottom: 15px;
-            }
-            .product-features {
-                margin: 20px 0;
-            }
-            .product-features ul {
-                list-style: none;
-                padding: 0;
-            }
-            .product-features li {
-                padding: 5px 0;
-                color: #666;
-            }
-            .product-price-detail {
-                background: #f8f8f8;
-                padding: 20px;
-                border-radius: 10px;
-                margin: 20px 0;
-            }
-            .product-price-detail .current-price {
-                font-size: 2rem;
-                font-weight: bold;
-                color: #B695c0;
-            }
-            .pix-discount {
-                color: #28a745;
-                font-weight: bold;
-                margin-top: 10px;
-            }
-            .product-actions-detail {
-                margin: 25px 0;
-            }
-            .quantity-selector {
-                margin-bottom: 15px;
-            }
-            .quantity-controls {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                margin-top: 5px;
-            }
-            .quantity-controls input {
-                width: 60px;
-                text-align: center;
-                padding: 5px;
-                border: 1px solid #ddd;
-                border-radius: 5px;
-            }
-            .quantity-btn {
-                width: 30px;
-                height: 30px;
-                border: 1px solid #ddd;
-                background: white;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-            .btn-comprar-detail {
-                background: #B695c0;
-                color: white;
-                border: none;
-                padding: 15px 30px;
-                border-radius: 8px;
-                cursor: pointer;
-                font-size: 16px;
-                font-weight: bold;
-                width: 100%;
-                margin-bottom: 10px;
-                transition: background 0.3s;
-            }
-            .btn-comprar-detail:hover {
-                background: #9e7ca9;
-            }
-            .btn-add-cart-detail {
-                background: transparent;
-                color: #B695c0;
-                border: 2px solid #B695c0;
-                padding: 13px 30px;
-                border-radius: 8px;
-                cursor: pointer;
-                font-size: 16px;
-                width: 100%;
-                transition: all 0.3s;
-            }
-            .btn-add-cart-detail:hover {
-                background: #B695c0;
-                color: white;
-            }
-            .back-to-products {
-                text-align: center;
-                margin-top: 30px;
-            }
-            .btn-back {
-                background: #666;
-                color: white;
-                border: none;
-                padding: 10px 20px;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-            /* Payment Styles */
-            .payment-container {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 30px;
-            }
-            .order-summary {
-                background: #f8f8f8;
-                padding: 20px;
-                border-radius: 10px;
-            }
-            .order-item {
-                display: flex;
-                gap: 15px;
-                padding: 10px 0;
-                border-bottom: 1px solid #ddd;
-            }
-            .order-item img {
-                width: 50px;
-                height: 50px;
-                object-fit: cover;
-                border-radius: 5px;
-            }
-            .payment-option {
-                margin-bottom: 15px;
-            }
-            .payment-option input[type="radio"] {
-                display: none;
-            }
-            .payment-option label {
-                display: flex;
-                align-items: center;
-                gap: 15px;
-                padding: 15px;
-                border: 2px solid #ddd;
-                border-radius: 8px;
-                cursor: pointer;
-                transition: all 0.3s;
-            }
-            .payment-option input[type="radio"]:checked + label {
-                border-color: #B695c0;
-                background: #f8f8f8;
-            }
-            .payment-icon {
-                font-size: 24px;
-            }
-            .payment-actions {
-                grid-column: 1 / -1;
-                display: flex;
-                gap: 15px;
-                margin-top: 20px;
-            }
-            .btn-secondary {
-                background: #666;
-                color: white;
-                border: none;
-                padding: 12px 25px;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-            .confirmation-content {
-                text-align: center;
-            }
-            .confirmation-icon {
-                font-size: 64px;
-                margin-bottom: 20px;
-            }
-            @media (max-width: 768px) {
-                .product-detail {
-                    grid-template-columns: 1fr;
-                }
-                .payment-container {
-                    grid-template-columns: 1fr;
-                }
-            }
         `;
         document.head.appendChild(style);
     }
 
     window.brinahllyApp = new BrinahllyBeauty();
-    console.log('Brinahlly Beauty - Sistema completo com páginas de produto! 🚀');
+    console.log('Brinahlly Beauty - Site totalmente funcional com imagens! 🚀');
+
+    // Exemplo de como adicionar imagens reais posteriormente:
+    // window.brinahllyApp.updateProductImage(1, 'images/flor-cerejeira.jpg');
+    // window.brinahllyApp.addNewProduct({
+    //     name: "Novo Body Splash",
+    //     description: "Descrição do novo produto",
+    //     price: 55.90,
+    //     category: "body-splash",
+    //     image: "images/novo-produto.jpg"
+    // });
 });
