@@ -179,69 +179,57 @@ class BrinahllyBeauty {
     setupCartHandlers() {
         // Finalizar compra
         document.getElementById('finalizarCompraBtn')?.addEventListener('click', () => {
-            this.handleCheckout();
-        });
+    this.handleCheckout();
+    this.showPaymentModal();
+});
 
-        document.getElementById('checkoutBtn')?.addEventListener('click', () => {
-            this.handleCheckout();
-        });
+document.getElementById('checkoutBtn')?.addEventListener('click', () => {
+    this.handleCheckout();
+    this.showPaymentModal();
+});
+
+function showPaymentModal() {
+    const paymentModal = document.getElementById('paymentModal');
+    if (paymentModal) {
+        paymentModal.style.display = 'block'; // Exibe o modal
     }
+}
 
-    setupCategoryHandlers() {
-        document.querySelectorAll('.category-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const category = card.dataset.category;
-                this.filterProductsByCategory(category);
-            });
-        });
+// Fechar o modal quando clicar no "X"
+document.querySelector('.close-modal')?.addEventListener('click', () => {
+    const paymentModal = document.getElementById('paymentModal');
+    if (paymentModal) {
+        paymentModal.style.display = 'none'; // Esconde o modal
     }
+});
 
-    setupSearchHandler() {
-        const searchInput = document.getElementById('searchInput');
-        if (searchInput) {
-            searchInput.addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase();
-                if (searchTerm.length > 2) {
-                    this.handleSearch(searchTerm);
-                } else if (searchTerm.length === 0) {
-                    this.loadProducts();
-                }
-            });
-        }
+// Fechar o modal ao clicar fora dele
+window.addEventListener('click', (event) => {
+    const paymentModal = document.getElementById('paymentModal');
+    if (event.target === paymentModal) {
+        paymentModal.style.display = 'none'; // Esconde o modal
     }
+});
 
-    setupMobileMenu() {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navMenu = document.querySelector('.nav-menu');
+// Processar o pagamento baseado na escolha do usuário
+document.getElementById('paymentPix')?.addEventListener('click', () => {
+    processPayment('PIX');
+});
 
-        if (menuToggle && navMenu) {
-            menuToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-            });
+document.getElementById('paymentCard')?.addEventListener('click', () => {
+    processPayment('Cartão');
+});
 
-            // Close menu when clicking on links
-            document.querySelectorAll('.nav-menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
-                });
-            });
-        }
-    }
+document.getElementById('paymentBoleto')?.addEventListener('click', () => {
+    processPayment('Boleto');
+});
 
-    setupSmoothScroll() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    }
+function processPayment(paymentMethod) {
+    alert(`Pagamento com ${paymentMethod} processado com sucesso!`);
+
+    // Fechar o modal de pagamento após a escolha
+    document.getElementById('paymentModal').style.display = 'none';
+}
 
     // Product Management
     loadProducts() {
