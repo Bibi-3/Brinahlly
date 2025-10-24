@@ -178,46 +178,62 @@ class BrinahllyBeauty {
 
     setupCartHandlers() {
         // Finalizar compra
-        document.getElementById('finalizarCompraBtn')?.addEventListener('click', () => {
-            this.handleCheckout();
-        });
+document.getElementById('finalizarCompraBtn')?.addEventListener('click', () => {
+    this.handleCheckout();
+    this.showPaymentOptions();
+});
 
-        document.getElementById('checkoutBtn')?.addEventListener('click', () => {
-            this.handleCheckout();
+document.getElementById('checkoutBtn')?.addEventListener('click', () => {
+    this.handleCheckout();
+    this.showPaymentOptions();
+});
+
+showPaymentOptions() {
+    const paymentOptionsDiv = document.getElementById('paymentOptions');
+    if (paymentOptionsDiv) {
+        paymentOptionsDiv.style.display = 'block';  // Exibe as opções de pagamento
+    }
+
+    this.setupPaymentHandlers();
+}
+
+setupPaymentHandlers() {
+    const paymentPix = document.getElementById('paymentPix');
+    const paymentCard = document.getElementById('paymentCard');
+    const paymentBoleto = document.getElementById('paymentBoleto');
+
+    if (paymentPix) {
+        paymentPix.addEventListener('click', () => {
+            this.processPayment('PIX');
         });
     }
 
-    setupCategoryHandlers() {
-        document.querySelectorAll('.category-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const category = card.dataset.category;
-                this.filterProductsByCategory(category);
-            });
+    if (paymentCard) {
+        paymentCard.addEventListener('click', () => {
+            this.processPayment('Cartão');
         });
     }
 
-    setupSearchHandler() {
-        const searchInput = document.getElementById('searchInput');
-        if (searchInput) {
-            searchInput.addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase();
-                if (searchTerm.length > 2) {
-                    this.handleSearch(searchTerm);
-                } else if (searchTerm.length === 0) {
-                    this.loadProducts();
-                }
-            });
-        }
+    if (paymentBoleto) {
+        paymentBoleto.addEventListener('click', () => {
+            this.processPayment('Boleto');
+        });
     }
+}
 
-    setupMobileMenu() {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navMenu = document.querySelector('.nav-menu');
+processPayment(paymentMethod) {
+    // Aqui você pode fazer um processamento baseado na forma de pagamento
+    // Isso pode ser uma chamada a uma API ou uma lógica específica.
+    
+    console.log(`Processando pagamento com ${paymentMethod}`);
 
-        if (menuToggle && navMenu) {
-            menuToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-            });
+    // Exemplo: Mostrar um alerta ou redirecionar o usuário para a página de pagamento
+    alert(`Pagamento com ${paymentMethod} processado com sucesso!`);
+
+    // Fechar as opções de pagamento após o processo
+    document.getElementById('paymentOptions').style.display = 'none';
+}
+
 
             // Close menu when clicking on links
             document.querySelectorAll('.nav-menu a').forEach(link => {
