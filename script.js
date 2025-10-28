@@ -26,6 +26,7 @@ class BrinahllyBeauty {
                 name: "Intenso",
                 description: "Fragancia amadeirada e sofisticada",
                 price: 44.95,
+                oldPrice: 59.90,
                 category: "body-splash",
                 badge: "LANÇAMENTO",
                 image: "image copy 3.png"
@@ -35,7 +36,6 @@ class BrinahllyBeauty {
                 name: "Serena",
                 description: "Uma essência encantada",
                 price: 44.95,
-                oldPrice: 59.90,
                 category: "body-splash",
                 image: "image copy.png"
             },
