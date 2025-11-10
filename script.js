@@ -38,6 +38,7 @@ class BrinahllyBeauty {
                 price: 49.90,
                 oldPrice: 59.90,
                 category: "body-splash",
+                badge: "FICTÍCIOO",
                 image: "image copy.png"
             },
             {
@@ -46,6 +47,7 @@ class BrinahllyBeauty {
                 description: "Doce e aconchegante, com notas cremosas de baunilha e âmbar",
                 price: 49.90,
                 category: "body-splash",
+                badge: "FICTÍCIOO",
                 image: "image.png"
             },
         ];
