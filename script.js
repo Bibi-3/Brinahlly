@@ -36,6 +36,7 @@ class BrinahllyBeauty {
                 name: "Serena",
                 description: "Uma essência encantada",
                 price: 49.90,
+                oldPrice: 59.90,
                 category: "body-splash",
                 image: "image copy.png"
             },
